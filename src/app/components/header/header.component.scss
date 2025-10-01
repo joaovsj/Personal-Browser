@@ -1,0 +1,29 @@
+:host{
+    header{
+
+        span{
+            a{
+                text-decoration: none;
+                color: var(--off-black);
+
+                &:hover{
+                    color: var(--secondary-color);
+                }
+            }
+        }
+
+        .box{
+            &__button{
+                background-color: transparent;
+                border: none;
+        
+                img{
+                    height: auto;
+                    width: calc(15px + 1vmin);
+                    
+              
+                }
+            }
+        }
+    }
+}

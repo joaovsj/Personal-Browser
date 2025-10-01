@@ -1,0 +1,25 @@
+// White
+$off-white: #F9FAFB;
+$light-gray: #F3F4F6;
+
+// Black
+$off-black: #111827;
+$dark-gray: #374151;
+
+// Support Colors;
+$primary-color: #078BFF;
+$secondary-color: #071C84; 
+
+// The Browser can change in real time using CSS custom properties
+:root{
+    --off-white:   #{$off-white};
+    --light-gray:  #{$light-gray};
+    --off-black:   #{$off-black};
+    --dark-grey:   #{$dark-gray};
+
+    --primary-color:    #{$primary-color};
+    --secondary-color:  #{$secondary-color};
+
+    --bg-color:   #{$off-black};
+    --text-color: #{$off-white};
+}
