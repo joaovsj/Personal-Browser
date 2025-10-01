@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SearchComponent } from '../../components/search/search.component';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-home',
@@ -15,4 +16,18 @@ import { SearchComponent } from '../../components/search/search.component';
 })
 export class HomeComponent {
 
+  public gif: string = "assets/gifs/white_rocket.gif";
+
+  constructor (private themeService: ThemeService){
+
+    this.themeService.themeChange.subscribe(theme => {
+      if (theme == "dark"){
+        this.gif = "assets/gifs/dark_rocket.gif";
+      } else{
+        this.gif = "assets/gifs/white_rocket.gif";
+      }
+    });
+  }
+
+  
 }

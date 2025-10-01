@@ -2,30 +2,35 @@
     header{
         display: flex;
         justify-content: space-between;
-
     
         span{
             a{
                 text-decoration: none;
-                color: var(--off-black);
+                color: var(--text-color);
+                transition: .2s;
 
                 &:hover{
-                    color: var(--secondary-color);
+                    color: var(--primary-color);
                 }
             }
         }
 
         .box{
             display: flex;
-            gap: 5px;
+            gap: 10px;
 
             &__button{
                 background-color: transparent;
                 border: none;
-        
-                img{
-                    height: auto;
-                    width: calc(15px + 1vmin);
+                cursor: pointer;
+                
+                i{
+                    font-size: calc(10px + 1vmin);
+                    color: var(--text-color);
+
+                    &:hover{
+                        color: var(--secondary-color);
+                    }
                 }
             }
         }

@@ -19,7 +19,15 @@ $secondary-color: #071C84;
 
     --primary-color:    #{$primary-color};
     --secondary-color:  #{$secondary-color};
+}
 
+[data-theme="light"]{
+    --bg-color:   #{$off-white};
+    --text-color: #{$off-black};
+}
+
+
+[data-theme="dark"]{
     --bg-color:   #{$off-black};
     --text-color: #{$off-white};
 }

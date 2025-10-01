@@ -6,14 +6,12 @@
         display: flex;
         background-color: transparent;
         
-
-
         .one{
             margin-top: 10vh;
             width: 60%;
             height: 100%;
             padding: 60px;
-            color: var(--off-black);
+            color: var(--text-color);
 
             &__title{
                 font-size: calc(40px + 2.5vmin);
@@ -24,13 +22,20 @@
         .two{
             width: 40%;
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            
+            img{
+                pointer-events: none;
+                margin-left: 20%;
+                height: auto;
+                width: 80%;
+            }
         }
-        // overflow: hidden;
-
 
         .bubble{
-            /* Ellipse 1 */
-
             position: absolute;
             width: 420px;
             height: 315px;
@@ -40,9 +45,7 @@
 
             background: rgba(7, 139, 255, 0.7);
             filter: blur(95px);
-
-            
-
+            z-index: -1;
         }
     }
 }
