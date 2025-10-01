@@ -1,6 +1,9 @@
 :host{
     header{
+        display: flex;
+        justify-content: space-between;
 
+    
         span{
             a{
                 text-decoration: none;
@@ -13,6 +16,9 @@
         }
 
         .box{
+            display: flex;
+            gap: 5px;
+
             &__button{
                 background-color: transparent;
                 border: none;
@@ -20,8 +26,6 @@
                 img{
                     height: auto;
                     width: calc(15px + 1vmin);
-                    
-              
                 }
             }
         }

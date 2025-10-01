@@ -1,0 +1,48 @@
+:host{
+    main{
+        position: relative;
+        width: 100%;
+        height: 78vh;
+        display: flex;
+        background-color: transparent;
+        
+
+
+        .one{
+            margin-top: 10vh;
+            width: 60%;
+            height: 100%;
+            padding: 60px;
+            color: var(--off-black);
+
+            &__title{
+                font-size: calc(40px + 2.5vmin);
+                margin-bottom: 2vh;
+            }
+        }
+
+        .two{
+            width: 40%;
+            height: 100%;
+        }
+        // overflow: hidden;
+
+
+        .bubble{
+            /* Ellipse 1 */
+
+            position: absolute;
+            width: 420px;
+            height: 315px;
+            left: 20%;
+            top: 70%;
+            border-radius: 50%;
+
+            background: rgba(7, 139, 255, 0.7);
+            filter: blur(95px);
+
+            
+
+        }
+    }
+}

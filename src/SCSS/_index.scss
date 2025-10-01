@@ -7,4 +7,8 @@
 @use "base/reset";
 
 // Layout
-@use "layout/header"
+@use "layout/header";
+@use "layout/footer";
+
+// Module
+@use "module/badge";

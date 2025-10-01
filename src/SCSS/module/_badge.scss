@@ -1,0 +1,25 @@
+.badge{
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #FFF;
+    box-shadow: 0 1px 50px rgba(0,0,0,0.12);
+    font-size: calc(10px + .5vmin);
+    transition: .4s;
+    z-index: 99;
+
+    i{
+        color: var(--secondary-color);
+    }
+
+    &--selected{
+        background-color: var(--secondary-color);
+        color: #FFF;
+    }
+
+    &--selected i{
+        color: #FFF;
+    }
+
+ 
+}
