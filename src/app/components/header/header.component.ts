@@ -13,7 +13,7 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class HeaderComponent {
 
-  private darkMode = false;
+  public darkMode = false;
 
   constructor(private themeService: ThemeService){
     
