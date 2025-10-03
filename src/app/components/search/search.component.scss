@@ -62,4 +62,37 @@
         display: flex;
         gap: 10px;
     }
+
+    @media (max-width: 800px) {
+        form{
+            width: 100%;
+        }
+
+        .search{
+            // height: 50px;
+
+            .search__input{
+                // font-size: calc(8px + 1vmin);
+                padding: 15px;
+
+                &:focus + .search__icon{
+                    right: 4%;
+                }   
+            }
+
+            .search__icon{
+                right: 5%;
+                
+
+                i{
+                    font-size: calc(12px + 1vmin);
+                }
+            }
+        }
+
+        .badges{
+            flex-wrap: wrap;
+        }
+        
+    }
 }

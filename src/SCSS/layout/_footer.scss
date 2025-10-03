@@ -8,3 +8,12 @@ footer{
     justify-content: end;
     padding: 20px 40px;
 }
+
+@media (max-width: 800px) {
+    footer{
+        position: relative;
+        font-size: calc(10px + 1vmin);
+        padding: 10px 20px;
+        justify-content: center;
+    }
+}

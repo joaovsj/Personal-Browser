@@ -2,3 +2,11 @@ header{
     height: 12vh;
     padding: 40px 60px !important;
 }
+
+@media (max-width: 800px) {
+    header{
+        font-size: calc(12px + 1vmin);
+        padding: 20px 30px !important;
+        align-items: center;
+    }
+}
