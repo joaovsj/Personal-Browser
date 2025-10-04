@@ -27,6 +27,7 @@
                 i{
                     font-size: calc(10px + 1vmin);
                     color: var(--text-color);
+                    transition: .4s;
 
                     &:hover{
                         color: var(--secondary-color);
