@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 // Services
 import { ThemeService } from '../../services/theme.service';
@@ -13,7 +13,8 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class HeaderComponent {
 
-  public darkMode = false;
+  public darkMode = false;  
+  @Output() toggleModal = new EventEmitter();
 
   constructor(private themeService: ThemeService){
     
@@ -24,5 +25,9 @@ export class HeaderComponent {
 
     let theme = this.darkMode ? "dark" : "light";
     this.themeService.setTheme(theme);
+  }
+
+  public showModal(){
+    this.toggleModal.emit();
   }
 }

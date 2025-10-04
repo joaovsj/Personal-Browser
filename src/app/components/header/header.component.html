@@ -9,7 +9,7 @@
             <i [ngClass]=" darkMode ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill' "></i>
     
         </button>
-        <button aria-label="settings" class="box__button">
+        <button aria-label="settings" class="box__button" (click)="showModal()">
             <i class="bi bi-gear-fill"></i>
         </button>
     </div>

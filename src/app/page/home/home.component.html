@@ -1,6 +1,9 @@
-<app-header />
-
+<app-header (toggleModal)="toggleModal()" />
 <main>
+
+    @if(showModal){
+      <app-modal (closeModal)="toggleModal()"/>
+    }
       <div class="container one">
         <h1 class="one__title">One new way <br> to explore.</h1>
         <app-search />
