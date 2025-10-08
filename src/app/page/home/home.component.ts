@@ -19,7 +19,7 @@ export class HomeComponent {
 
 
   public showModal: boolean = false;
-  public gif: string = "assets/gifs/blue_light.gif";
+  public gif: string = "";
 
 
   public themeDefined: string = "";
@@ -29,6 +29,8 @@ export class HomeComponent {
   constructor(private themeService: ThemeService) {
     this.themeDefined = localStorage.getItem("theme") || "light";
     this.color        = localStorage.getItem("color") || "blue";
+
+    this.gif = `assets/gifs/${this.color}_${this.themeDefined}.gif`;
 
     this.themeService.setTheme(this.themeDefined);
     this.themeService.setColor(this.color);
