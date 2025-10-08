@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ReadmorePipe implements PipeTransform {
 
-  transform(value: string, limit: number = 30): string {
+  transform(value: string, limit: number = 10): string {
     
     if(!value) return "";
 

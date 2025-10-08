@@ -24,5 +24,27 @@
         color: #FFF;
     }
 
- 
+    
+}
+
+.badge--small{
+    padding: 0.3rem 0.6rem;
+    font-size: calc(8px + .3vmin);
+    border-radius: 8px;
+}
+
+.badge--outline{
+    font-size: calc(8px + .5vmin);
+    padding: 0.2rem .5rem;
+    border-radius: 12px;
+    font-weight: 500;
+    background-color: transparent;
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--primary-color);
+        color: #FFF !important;
+    }
 }

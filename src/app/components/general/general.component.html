@@ -3,13 +3,90 @@
         <div class="container__overview">
 
            <p><i class="bi bi-stars"></i><strong> Insights: </strong>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo omnis reprehenderit repellat aliquam, rem quasi nulla, dicta laborum officia libero ea fuga aut modi velit fugiat minus natus enim! Tenetur cum placeat consequatur doloribus quisquam, magni ipsum natus temporibus, dolores vel id voluptatibus laudantium? Sed nihil dignissimos delectus doloremque, veniam, aut nobis possimus quo corporis beatae natus atque quidem eius, quis ullam! Voluptatibus beatae libero veniam provident itaque aut voluptate impedit assumenda. Obcaecati nam earum, voluptatum esse consectetur quibusdam enim placeat dolore, beatae asperiores quos itaque sint dolor tempore nesciunt, voluptatibus illo eaque neque aliquam quis porro aliquid iste qui.
-            
+                
+                @if(!this.fullText){
+                    {{ text | readmore }}
+                } @else {
+                    {{ text}}
+
+                }
             </p>
+            
+            <button (click)="toggleFullText()">
+                {{ this.fullText ? "Read less" : "Read more" }}
+            </button>
             <!-- IA insights -->
         </div>
         <div class="container__results">
             <!-- Results -->
+
+            <div class="result">
+                <div class="result__icon">
+                    <img src="assets/image.png" alt="" height="20px" width="20px">
+                </div>
+                <div class="result__info">
+                    <a href="">Starbucks Coffee Company</a>
+                    <span>https://www.austintexas.org &rsaquo; food-and-drink &rsaquo; coffeecoffeecoffee</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eum cum id ullam. Nam eligendi atque totam omnis velit neque nisi exercitationem explicabo, dolorem corporis minus sequi in rerum molestias </p>
+
+
+                    <div class="result__links">
+                        <span class="badge--outline"> History </span>
+                        <span class="badge--outline"> About </span>
+                        <span class="badge--outline"> Contact </span>
+                    </div>
+                </div>
+                <div class="result__image">
+                    <img src="assets/image.png" alt="">
+                </div>        
+            </div>
+
+               <div class="result">
+                <div class="result__icon">
+                    <img src="assets/image.png" alt="" height="20px" width="20px">
+                </div>
+                <div class="result__info">
+                    <a href="">Starbucks Coffee Company</a>
+                    <span>https://www.austintexas.org &rsaquo; food-and-drink &rsaquo; coffeecoffeecoffee</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eum cum id ullam. Nam eligendi atque totam omnis velit neque nisi exercitationem explicabo, dolorem corporis minus sequi in rerum molestias </p>
+
+<!-- 
+                    <div class="result__links">
+                        <span class="badge--outline"> History </span>
+                        <span class="badge--outline"> About </span>
+                        <span class="badge--outline"> Contact </span>
+                    </div> -->
+                </div>
+                <div class="result__image">
+                    <img src="assets/image.png" alt="">
+                </div>        
+            </div>
+
+
+               <div class="result">
+                <div class="result__icon">
+                    <img src="assets/image.png" alt="" height="20px" width="20px">
+                </div>
+                <div class="result__info">
+                    <a href="">Starbucks Coffee Company</a>
+                    <span>https://www.austintexas.org &rsaquo; food-and-drink &rsaquo; coffeecoffeecoffee</span>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eum cum id ullam. Nam eligendi atque totam omnis velit neque nisi exercitationem explicabo, dolorem corporis minus sequi in rerum molestias </p>
+
+
+                    <div class="result__links">
+                        <span class="badge--outline"> History </span>
+                        <span class="badge--outline"> About </span>
+                        <span class="badge--outline"> Contact </span>
+                    </div>
+                </div>
+                <div class="result__image">
+                    <!-- <img src="assets/image.png" alt=""> -->
+                </div>        
+            </div>
+
+
+            
+
         </div>
         <div class="container__search">
             <!-- People also serch for -->

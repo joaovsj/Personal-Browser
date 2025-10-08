@@ -1,28 +1,139 @@
 :host{
     section{
-        width: 60%;
+        width: 70%;
         height: min-content;
         padding: 10px 60px;
         
         .container{
             width: 100%;
             height: min-content;
-            background-color: #FFF;
+            background-color: var(--bg-color);
+            opacity: .59;
             border-radius: 8px;
             padding: 20px;
+            color: var(--off-black);
 
             &__overview{
-                font-size: calc(15px + 0.5vmin);
+                position: relative;
+                font-size: calc(12px + 0.5vmin);
                 margin-bottom: 10px;
                 width: 100%;
                 height: min-content;
                 display: flex;
+                flex-direction: column;
+                transition: 4s;
                 
-                &>p strong, i{
-                    color: var(--secondary-color);
+                &>p {
+                    line-height: 22px;
+                    transition: 4s;
+                    
+
+                    strong, i{
+                        color: var(--secondary-color);
+                    }
+       
+                }
+
+                &>button{
+                    position: absolute;
+                    bottom: 0;
+                    font-size: calc(10px + 0.5vmin);
+                    align-self: end;
+                    background-color: transparent;
+                    border: none;
+                    font-weight: bold;
+                    padding: 0 5px;
+
+                    &:hover{
+                        cursor: pointer;
+                        color: var(--secondary-color);
+                    }
                 }
             }
+
+
+            .container__results{
+                margin-top: 5vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                // padding: 20px;
+                
+
+                .result{
+                    display: flex;
+                    padding: 20px 20px 20px 10px;
+                    border-radius: 8px;
+                    background-color: var(--bg-color);
+                    
+                    box-shadow: 2px 2px 14px rgba(0,0,0,0.1);
+
+
+                    .result__icon{
+                        width: 5%;
+                        display: flex;
+                        align-items: start;
+                        justify-content: center;
+                        // background-color: tomato;
+                        padding: 10px; 
+
+                        img{
+                            border-radius: 50%;
+                        }
+                    }
+
+                    .result__info{ 
+                        
+                        a{
+                            display: block;
+                            text-decoration: none;
+                            font-size: calc(14px + 0.5vmin);
+                            font-weight: bold;
+                            color: #000;
+
+                            &:hover{
+                                color: var(--secondary-color);
+                            }
+                        }
+                        
+                        &>span{
+                            font-size: calc(10px + 0.5vmin);
+                            color: var(--dark-grey);
+                            opacity: .8;
+                            font-style: italic;
+                        }
+
+                        p{
+                            margin-top: 2%;
+                        }
+
+                        .result__links{
+                            margin-top: 2%;
+                            display: flex;
+                            gap: 10px;
+                            
+                        }
+                    }
+
+                    .result__image{
+                        position: relative;
+                        width: 10%;
+
+                        img{
+                            right: 0;
+                            border-radius: 8px;
+                            height: 100%;
+                            max-height: 70px;
+                            object-fit: cover;
+                        }
+                    }
+                    
+                }
+            }
+
         }
     }
 
 }
+
