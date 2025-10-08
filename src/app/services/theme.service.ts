@@ -14,6 +14,10 @@ export class ThemeService {
     document.body.setAttribute('data-theme', theme);
     this.themeChange.next(theme);
   }
+  
+  setColor(color: string){
+    document.body.setAttribute('data-color', color);
+  }
 
 
 }

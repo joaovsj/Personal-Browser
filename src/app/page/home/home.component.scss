@@ -43,8 +43,9 @@
             top: 70%;
             border-radius: 50%;
 
-            background: rgba(7, 139, 255, 0.7);
+            background: var(--primary-color);
             filter: blur(95px);
+            opacity: .7;
             z-index: -1;
         }
     }
