@@ -17,13 +17,12 @@ import { ModalComponent } from '../../components/modal/modal.component';
 })
 export class HomeComponent {
 
+  public currentComponent: any = "";
 
-  public showModal: boolean = false;
-  public gif: string = "";
-
-
-  public themeDefined: string = "";
-  public color: string = "";
+  public showModal    : boolean = false;
+  public gif          : string  = "";
+  public themeDefined : string  = "";
+  public color        : string  = "";
 
 
   constructor(private themeService: ThemeService) {
@@ -49,10 +48,18 @@ export class HomeComponent {
 
       this.gif = `assets/gifs/${color}_${this.themeDefined}.gif`;
     });
+  
+  
+    this.optionSelected();
   }
-
 
   public toggleModal() {
     this.showModal = !this.showModal;
+  }
+  
+
+  async optionSelected() {
+    const { GeneralComponent } = await import("../../components/general/general.component");
+    this.currentComponent = GeneralComponent;
   }
 }
