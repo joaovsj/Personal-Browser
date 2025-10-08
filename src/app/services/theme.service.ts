@@ -6,7 +6,8 @@ import { Subject } from 'rxjs';
 })
 export class ThemeService {
 
-  themeChange  = new Subject<String>();
+  themeChange  = new Subject<string>();
+  colorChange  = new Subject<string>();
 
   constructor() { }
 
@@ -17,6 +18,7 @@ export class ThemeService {
   
   setColor(color: string){
     document.body.setAttribute('data-color', color);
+    this.colorChange.next(color);
   }
 
 

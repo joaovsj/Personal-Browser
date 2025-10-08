@@ -19,20 +19,38 @@ export class HomeComponent {
 
 
   public showModal: boolean = false;
-  public gif: string = "assets/gifs/white_rocket.gif";
+  public gif: string = "assets/gifs/blue_light.gif";
 
-  constructor (private themeService: ThemeService){
+
+  public themeDefined: string = "";
+  public color: string = "";
+
+
+  constructor(private themeService: ThemeService) {
+    this.themeDefined = localStorage.getItem("theme") || "light";
+    this.color        = localStorage.getItem("color") || "blue";
+
+    this.themeService.setTheme(this.themeDefined);
+    this.themeService.setColor(this.color);
 
     this.themeService.themeChange.subscribe(theme => {
-      if (theme == "dark"){
-        this.gif = "assets/gifs/dark_rocket.gif";
-      } else{
-        this.gif = "assets/gifs/white_rocket.gif";
-      }
+      this.themeDefined = theme
+      localStorage.setItem("theme", theme);
+
+      this.gif = `assets/gifs/${this.color}_${theme}.gif`;
+    });
+
+
+    this.themeService.colorChange.subscribe(color => {
+      this.color = color;
+      localStorage.setItem("color", color)
+
+      this.gif = `assets/gifs/${color}_${this.themeDefined}.gif`;
     });
   }
 
-  public toggleModal(){
+
+  public toggleModal() {
     this.showModal = !this.showModal;
   }
 }
