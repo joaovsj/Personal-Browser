@@ -1,16 +1,16 @@
 <section>
     <div class="container">
-        <div class="container__overview">
-
-           <p><i class="bi bi-stars"></i><strong> Insights: </strong>
-                
-                @if(!this.fullText){
-                    {{ text | readmore }}
-                } @else {
-                    {{ text}}
-
-                }
-            </p>
+        <div class="container__overview" [class.expanded]="fullText">
+           <div >
+               <p><i class="bi bi-stars"></i><strong> Insights: </strong>
+               
+                    @if(!this.fullText){
+                        {{ text | readmore }}
+                    } @else {
+                        {{ text}}
+                    }
+                </p>
+           </div>
             
             <button (click)="toggleFullText()">
                 {{ this.fullText ? "Read less" : "Read more" }}
