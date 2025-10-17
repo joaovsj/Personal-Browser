@@ -1,9 +1,12 @@
 <h1 class="one__title">One new way <br> to explore.</h1>
 
-<form  action="" method="get">
+<form [formGroup]="searchForm" (ngSubmit)="request()">
     <div class="search">
-        <input class="search__input" type="text" name="" id="" placeholder="What are you looking for?">
-        <button class="search__icon">
+        <input 
+            class="search__input" 
+            type="text" name="" id="" 
+            formControlName="query" placeholder="What are you looking for?">
+        <button class="search__icon" type="submit">
             <i class="bi bi-search"></i>
         </button>
     </div>

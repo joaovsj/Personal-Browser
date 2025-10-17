@@ -9,7 +9,7 @@ export class SettingsService {
   #http = inject(HttpClient)
   #apiKey: string = "";
 
-  public readonly baseUrl = "https://serpapi.com/search.json?engine=google&q=Coffee";
+  public readonly baseUrl = "https://serpapi.com/search.json";
   public params: HttpParams = new HttpParams();
   
   
@@ -30,8 +30,11 @@ export class SettingsService {
     this.params = new HttpParams()
     .set("q", query)
     .set("engine", engine)
-    .set("api_key", this.#apiKey);
+    .set("api_key", this.getApiKey());
 
+    console.log(this.getApiKey());
+
+    console.log(this.params);
     return this.#http.get(this.baseUrl, {params: this.params});
   }
 }

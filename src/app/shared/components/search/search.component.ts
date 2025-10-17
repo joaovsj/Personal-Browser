@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+// Services
+import { SettingsService } from '@services/settings.service';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +13,12 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-    
+  
+  #fb = inject(FormBuilder);
+  #settingService = inject(SettingsService);
+
+  public searchForm: FormGroup;
+
   badges = [
     { label: 'IA Insights',   value: 'ai',        icon: 'bi bi-stars' },
     { label: 'Images',        value: 'images',    icon: 'bi bi-images' },
@@ -21,6 +29,12 @@ export class SearchComponent {
 
   badgeSelected = "";
 
+  constructor(){
+    this.searchForm = this.#fb.group({
+      query:    ["", Validators.required],
+    });
+  }
+
   setCategory(category: string){
 
     if (this.badgeSelected == category){
@@ -29,5 +43,28 @@ export class SearchComponent {
       this.badgeSelected = category;
     }
     
+  }
+
+  request(){
+    if(this.searchForm.invalid) return;
+    
+    // if no badge selected, default to "google"
+    this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
+
+    const query = this.searchForm.value.query 
+    
+    this.#settingService.searchGoogle(query,this.badgeSelected).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("request finished");
+      },
+    })
+    
+
   }
 }
