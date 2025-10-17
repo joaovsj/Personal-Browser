@@ -1,4 +1,9 @@
-:host{
+:host{  
+    .one__title{
+        font-size: calc(40px + 2.5vmin);
+        color: var(--text-color);
+        margin-bottom: 2vh;
+    }
 
     form{
         padding: 10px 0;

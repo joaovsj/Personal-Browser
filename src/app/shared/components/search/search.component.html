@@ -1,4 +1,6 @@
-<form action="" method="get">
+<h1 class="one__title">One new way <br> to explore.</h1>
+
+<form  action="" method="get">
     <div class="search">
         <input class="search__input" type="text" name="" id="" placeholder="What are you looking for?">
         <button class="search__icon">
@@ -6,22 +8,14 @@
         </button>
     </div>
     <div class="badges">
-        <!-- <span class="badge badge--selected"> -->
-        <span class="badge badge">
-            <i class="bi bi-stars"></i> IA Insights
-        </span>
-
-        <span class="badge badge">
-            <i class="bi bi-images"></i> Images
-        </span>
-        <span class="badge">
-            <i class="bi bi-shop"></i> Shopping
-        </span>
-        <span class="badge">
-            <i class="bi bi-newspaper"></i> News
-        </span>
-        <span class="badge">
-            <i class="bi bi-folder2-open"></i> Jobs
-        </span>
+        @for(badge of badges; track badge){
+            <span 
+                class="badge"
+                [class.badge--selected]="badgeSelected == badge.value"
+                (click)="setCategory(badge.value)"
+                >
+                <i [class]="badge.icon"> </i> {{ badge.label }} 
+            </span>
+        }
     </div>
 </form>

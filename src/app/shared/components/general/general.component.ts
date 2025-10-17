@@ -7,7 +7,7 @@ import { ReadmorePipe } from '@pipes/readmore.pipe';
 @Component({
   selector: 'app-general',
   standalone: true,
-  imports: [CommonModule, ReadmorePipe],
+  imports: [CommonModule],
   templateUrl: './general.component.html',
   styleUrl: './general.component.scss'
 })
