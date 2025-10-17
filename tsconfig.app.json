@@ -3,6 +3,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*":  ["app/shared/components/*"],
+      "@pipes/*":       ["app/shared/pipes/*"],
+      "@services/*":    ["app/services/*"]
+    },
     "types": []
   },
   "files": [

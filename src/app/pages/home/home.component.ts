@@ -2,11 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 // Components
-import { HeaderComponent } from '../../components/header/header.component';
-import { FooterComponent } from '../../components/footer/footer.component';
-import { SearchComponent } from '../../components/search/search.component';
-import { ThemeService } from '../../services/theme.service';
-import { ModalComponent } from '../../components/modal/modal.component';
+
+import { FooterComponent }  from '@components/footer/footer.component';
+import { SearchComponent }  from '@components/search/search.component';
+import { ModalComponent }   from '@components/modal/modal.component';
+import { HeaderComponent }  from '@components/header/header.component';
+
+// Services
+import { ThemeService } from '@services/theme.service';
 
 @Component({
   selector: 'app-home',
@@ -59,7 +62,7 @@ export class HomeComponent {
   
 
   async optionSelected() {
-    const { GeneralComponent } = await import("../../components/general/general.component");
+    const { GeneralComponent } = await import("@components/general/general.component");
     this.currentComponent = GeneralComponent;
   }
 }
