@@ -7,12 +7,17 @@
         </button>
     </div>
      <hr>
-    <form action="" class="settings">
+    <form [formGroup]="apiform" (ngSubmit)="submit()" class="settings">
         <span class="settings__title">Set up your API key</span>
         <p class="settings__description">In addition to use this platform you need set up your personal API key. Once you have your credentials set up you can access all the resources of this platform. </p>
         <div class="settings__buttons">
-            <input type="password" name="" id="">
-            <button type="submit">Set</button>
+            <input type="password" name="" id="" formControlName="apikey"   >
+            <button 
+                type="submit" 
+                class="btn"
+                [disabled]="apiform.invalid"
+                [class.--disabled]="apiform.invalid"
+                >Set </button>
         </div>
     </form>
     <div class="customization">    

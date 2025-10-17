@@ -1,30 +1,37 @@
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
 
-  private readonly apiKey = "app_settings";
+  #http = inject(HttpClient)
+  #apiKey: string = "";
 
-  private settings = {
-    serpApiKey: ""
+  public readonly baseUrl = "https://serpapi.com/search.json?engine=google&q=Coffee";
+  public params: HttpParams = new HttpParams();
+  
+  
+  constructor() { 
+    this.#apiKey = localStorage.getItem("serpApiKey") || "";
   }
 
-  constructor() { 
-    this.loadSettings();
+  public getApiKey(){
+    return this.#apiKey;
   }
 
   public setApiKey(key: string){
-    this.settings.serpApiKey = key;
+    this.#apiKey = key;
+    localStorage.setItem("serpApiKey", key);
   }
 
-  private loadSettings(){
-    const settings = localStorage.getItem(this.apiKey);
-    console.log(settings);
+  public searchGoogle(query: string, engine: string){
+    this.params = new HttpParams()
+    .set("q", query)
+    .set("engine", engine)
+    .set("api_key", this.#apiKey);
 
-    if (settings){
-      this.settings = JSON.parse(settings);
-    }
+    return this.#http.get(this.baseUrl, {params: this.params});
   }
 }

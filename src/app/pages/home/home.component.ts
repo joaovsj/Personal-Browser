@@ -57,6 +57,7 @@ export class HomeComponent {
   }
 
   public toggleModal() {
+    console.log("test");
     this.showModal = !this.showModal;
   }
   

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 // Pipes
-import { ReadmorePipe } from '../../pipes/readmore.pipe';
+import { ReadmorePipe } from '@pipes/readmore.pipe';
 
 @Component({
   selector: 'app-general',
