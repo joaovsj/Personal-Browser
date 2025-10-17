@@ -7,13 +7,28 @@
         .container{
             width: 100%;
             height: min-content;
-            background: var(--bg-color);            
-            border-radius: 8px;
             padding: 20px;
-            color: var(--text-color);
-            box-shadow: 1px 0px 50px rgba(0,0,0,0.1);
             position: relative;
             z-index: 1;
+
+                    
+    
+            
+            &::before{
+                content: '';
+                display: block;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                border-radius: 8px;
+                transform: translate(-20px, -20px);
+                background-color: var(--bg-color);
+                box-shadow: 1px 0px 50px rgba(0,0,0,0.1);
+                z-index: -1;
+                opacity: .39;
+            }
+
+
 
             &__overview{
                 position: relative;
@@ -70,25 +85,27 @@
 
 
             .container__results{
-                margin-top: 5vh;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
+
+                
   
                 .result{
                     display: flex;
-                    padding: 20px 0;
+                    padding: 20px;
                     border-radius: 8px;
                     color: var(--text-color);
-
+                    background-color: var(--bg-color);
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
                     .result__icon{
                         width: 5%;
                         display: flex;
                         align-items: start;
                         justify-content: center;
-                        padding-right: 10px; 
+                        padding-right: 18px; 
 
                         img{
                             border-radius: 50%;
@@ -130,12 +147,14 @@
 
                     .result__image{
                         position: relative;
-                        width: 10%;
+                        min-width: 75px;
+                        max-width: 80px;
 
                         img{
                             right: 0;
                             border-radius: 8px;
                             height: 100%;
+                            width: 100%;
                             max-height: 70px;
                             object-fit: cover;
                         }
