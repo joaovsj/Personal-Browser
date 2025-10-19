@@ -1,0 +1,5 @@
+[[redirects]]
+    from = "/serpapi/*"
+    to = "https://serpapi.com/:splat"
+    status = 200
+    force = true
