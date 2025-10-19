@@ -7,14 +7,16 @@ import { FooterComponent }  from '@components/footer/footer.component';
 import { SearchComponent }  from '@components/search/search.component';
 import { ModalComponent }   from '@components/modal/modal.component';
 import { HeaderComponent }  from '@components/header/header.component';
+import { ConfirmComponent } from '@components/confirm/confirm.component';
 
 // Services
 import { ThemeService } from '@services/theme.service';
+import { ConfirmService } from '@services/confirm.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, SearchComponent, ModalComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, SearchComponent, ModalComponent, ConfirmComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -28,7 +30,10 @@ export class HomeComponent {
   public color        : string  = "";
 
 
-  constructor(private themeService: ThemeService) {
+  constructor(
+    private themeService: ThemeService,
+    private confirmService: ConfirmService
+  ) {
     this.themeDefined = localStorage.getItem("theme") || "light";
     this.color        = localStorage.getItem("color") || "blue";
 
