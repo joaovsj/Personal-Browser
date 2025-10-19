@@ -9,7 +9,7 @@ export class SettingsService {
   #http = inject(HttpClient)
   #apiKey: string = "";
 
-  public readonly baseUrl = "https://serpapi.com/search.json";
+  public readonly baseUrl = "/serpapi/search.json";
   public params: HttpParams = new HttpParams();
   
   
