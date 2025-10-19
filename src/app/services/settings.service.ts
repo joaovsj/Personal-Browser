@@ -28,13 +28,10 @@ export class SettingsService {
 
   public searchGoogle(query: string, engine: string){
     this.params = new HttpParams()
-    .set("q", query)
-    .set("engine", engine)
-    .set("api_key", this.getApiKey());
+      .set("q", query)
+      .set("engine", engine)
+      .set("api_key", this.getApiKey());
 
-    console.log(this.getApiKey());
-
-    console.log(this.params);
     return this.#http.get(this.baseUrl, {params: this.params});
   }
 }
