@@ -1,6 +1,13 @@
+
 @if (status.active$ | async){
-    <div class="confirm confirm--sucess">
-        <i class="bi bi-check-circle-fill"></i>
+    <div 
+        class="confirm" 
+        [class]="status.class$ | async">
+
+        
+        
+        <i [class]="status.icon$ | async"></i>
+
         <p class="confirm__message">{{  status.message$ | async }}</p>
 
         <button class="confirm__button" (click)="closePopUp()">

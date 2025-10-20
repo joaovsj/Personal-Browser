@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, output, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 // Services
-import { SettingsService } from '@services/settings.service';
+import { SettingsService }  from '@services/settings.service';
+import { ConfirmService }   from '@services/confirm.service';
+
 
 @Component({
   selector: 'app-search',
@@ -13,9 +15,10 @@ import { SettingsService } from '@services/settings.service';
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  
-  #fb = inject(FormBuilder);
+
   #settingService = inject(SettingsService);
+  #confirmService = inject(ConfirmService);
+  #fb             = inject(FormBuilder);
 
   @Output() componentChange = new EventEmitter<{badge: string, data: any}>();
 
@@ -65,6 +68,11 @@ export class SearchComponent {
 
       },
       error: (err) => {
+
+        if(err.status == 401){
+          this.#confirmService.show("Please provide your correct SerpApi key in settings.", "info");
+        }
+
         console.log(err);
       },
       complete: () => {
