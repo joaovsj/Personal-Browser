@@ -38,7 +38,6 @@
 
             &:focus + .search__icon{
                 right: 1%;
-             
             }   
 
             &:focus + .search__icon i{
@@ -53,6 +52,7 @@
             right: 2%;
             border: none;
             background-color: transparent;
+            cursor: pointer;
             transition: .4s;
 
             i{

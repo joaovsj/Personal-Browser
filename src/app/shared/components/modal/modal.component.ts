@@ -26,6 +26,8 @@ export class ModalComponent {
     this.apiform = this.#fb.group({
       apikey: ["", Validators.required]
     });
+
+    this.loadApiKey();
   }
 
   @Output() closeModal = new EventEmitter();
@@ -42,6 +44,19 @@ export class ModalComponent {
     const key = this.apiform.value.apikey;
     this.#settingService.setApiKey(key)
     this.#confirmService.show("Api key set successfully");
+  }
+
+  removeApiKey(){
+    this.#settingService.setApiKey("");
+    this.apiform.reset();
+    this.#confirmService.show("API Key removed sucessfully");
+  }
+
+  loadApiKey(){
+    const keyDefinied = this.#settingService.getApiKey();
+    if (keyDefinied !== "") {
+      this.apiform.patchValue({apikey: keyDefinied});
+    }
   }
 }
 
