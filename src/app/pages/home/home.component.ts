@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // Components
 
@@ -22,13 +22,15 @@ import { ConfirmService } from '@services/confirm.service';
 })
 export class HomeComponent {
 
+  @Input() badge  : string = "";  
+  @Input() data   : any    = "";
+  
   public currentComponent: any = "";
-
   public showModal    : boolean = false;
   public gif          : string  = "";
   public themeDefined : string  = "";
   public color        : string  = "";
-
+  
 
   constructor(
     private themeService: ThemeService,
@@ -58,16 +60,35 @@ export class HomeComponent {
     });
   
   
-    this.optionSelected();
   }
 
   public toggleModal() {
     this.showModal = !this.showModal;
   }
   
+async loadComponent({ badge, data }: { badge: string; data: any }) {
+    this.data = data;
 
-  async optionSelected() {
-    const { GeneralComponent } = await import("@components/general/general.component");
-    this.currentComponent = GeneralComponent;
+    switch (badge) {
+      case 'images':
+        // const { ImagesComponent } = await import('@components/images/images.component');
+        // this.currentComponent = ImagesComponent;
+        break;
+
+      case 'news':
+        // const { NewsComponent } = await import('@components/news/news.component');
+        // this.currentComponent = NewsComponent;
+        break;
+
+      default:
+        const { GeneralComponent } = await import('@components/general/general.component');
+        this.currentComponent = GeneralComponent;
+        break;
+    }
   }
+
+
+  
+
+  
 }

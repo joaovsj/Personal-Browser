@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, output, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 // Services
@@ -16,6 +16,8 @@ export class SearchComponent {
   
   #fb = inject(FormBuilder);
   #settingService = inject(SettingsService);
+
+  @Output() componentChange = new EventEmitter<{badge: string, data: any}>();
 
   public searchForm: FormGroup;
 
@@ -46,16 +48,21 @@ export class SearchComponent {
   }
 
   request(){
+    
     if(this.searchForm.invalid) return;
     
-    // if no badge selected, default to "google"
     this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
-
     const query = this.searchForm.value.query 
     
     this.#settingService.searchGoogle(query,this.badgeSelected).subscribe({
       next: (res) => {
+
         console.log(res);
+        this.componentChange.emit({
+          badge: this.badgeSelected,
+          data: res 
+        })
+
       },
       error: (err) => {
         console.log(err);

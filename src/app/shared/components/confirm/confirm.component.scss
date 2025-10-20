@@ -27,14 +27,15 @@
             background-color: transparent;
             border: none;
             transform: translateY(2px);
+            cursor: pointer;
         }
 
         @keyframes  showsUP{
             from{
-                transform: translateX(5%);
+                transform: translateY(-5%);
             }
             to{
-                transform: translateX(0%);
+                transform: translateY(0%);
             }
         }
     }

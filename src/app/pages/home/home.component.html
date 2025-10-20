@@ -11,7 +11,10 @@
       <section class="home">
         <div class="container one">
          
-          <app-search />
+          <app-search 
+            (componentChange)="loadComponent($event)"
+          />
+
         </div>
         <div class="container two">
           <div class="two__gif">
@@ -22,9 +25,12 @@
 
       <div class="bubble"></div>
 
-        <!-- @if(currentComponent){
-          <ng-container [ngComponentOutlet]="currentComponent"></ng-container>
-        } -->
+      @if (currentComponent) {
+        <ng-container
+          [ngComponentOutlet]="currentComponent"
+          [ngComponentOutletInputs]="{ data: data }">
+        </ng-container>
+      }
       
 </main>
 <app-footer />

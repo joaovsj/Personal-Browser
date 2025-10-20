@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ConfirmService {
 
   public active$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  public message$: BehaviorSubject<string> = new BehaviorSubject("");
+  public message$: BehaviorSubject<string> = new BehaviorSubject("teste");
 
   constructor() { }
 
