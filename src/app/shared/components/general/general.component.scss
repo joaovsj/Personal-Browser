@@ -163,6 +163,34 @@
                 }
             }
 
+
+            .container__search{
+                margin-top: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h5{
+                    font-size: calc(12px + .5vmin);
+                }
+
+                .search__link{
+                    text-decoration: none;
+                    color: var(--text-color);
+
+                    .search__block{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        width: 100%;
+                        height: min-content;
+                        padding: 15px 20px ;
+                        background-color: #FFF;
+                        border-radius: 8px;
+                        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
         }
     }
 

@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 // Services
 import { SettingsService }  from '@services/settings.service';
 import { ConfirmService }   from '@services/confirm.service';
+import { CommunicationService } from '@services/communication.service';
 
 
 @Component({
@@ -14,11 +15,12 @@ import { ConfirmService }   from '@services/confirm.service';
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit{
 
-  #settingService = inject(SettingsService);
-  #confirmService = inject(ConfirmService);
-  #fb             = inject(FormBuilder);
+  #settingService       = inject(SettingsService);
+  #confirmService       = inject(ConfirmService);
+  #cummunicationService = inject(CommunicationService);
+  #fb                   = inject(FormBuilder);
 
   @Output() componentChange = new EventEmitter<{badge: string, data: any}>();
 
@@ -40,6 +42,15 @@ export class SearchComponent {
     });
   }
 
+  ngOnInit(){
+    
+    this.#cummunicationService.data$.subscribe(data => {
+      if (data){
+        this.makeRequest(data);
+      }
+    })
+  }
+
   setCategory(category: string){
 
     if (this.badgeSelected == category){
@@ -50,13 +61,27 @@ export class SearchComponent {
     
   }
 
-  request(){
-    
+  requestForm(){      
     if(this.searchForm.invalid) return;
-    
-    this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
+
     const query = this.searchForm.value.query 
-    
+    this.request(query);
+  }
+
+  makeRequest(data: any){
+    const query = this.getQueryValue(data, "q");
+    this.request(query);
+  }
+
+  private getQueryValue(urlString: string, param: string): string | null {
+    const url = new URL(urlString);
+    return url.searchParams.get(param);
+  }
+
+
+  request(query: any){
+    this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
+      
     this.#settingService.searchGoogle(query,this.badgeSelected).subscribe({
       next: (res) => {
 
@@ -79,7 +104,5 @@ export class SearchComponent {
         console.log("request finished");
       },
     })
-    
-
-  }
+  }  
 }
