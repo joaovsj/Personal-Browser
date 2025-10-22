@@ -20,73 +20,41 @@
         <div class="container__results">
             <!-- Results -->
 
-            <div class="result">
-                <div class="result__icon">
-                    <img src="assets/image.png" alt="" height="20px" width="20px">
-                </div>
-                <div class="result__info">
-                    <a href="">Starbucks Coffee Company</a>
-                    <span>https://www.austintexas.org &rsaquo; food-and-drink &rsaquo; coffeecoffeecoffee</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eum cum id ullam. Nam eligendi atque totam omnis velit neque nisi exercitationem explicabo, dolorem corporis minus sequi in rerum molestias </p>
+            @if(this.organicResults){
+                @for (result of this.organicResults; track $index) {
+                    
+                    <div class="result">
+                        <div class="result__icon">
+                            <img [src]="result.favicon" alt="" height="20px" width="20px">
+                        </div>
+                        <div class="result__info">
+                            <a [href]="result.link">{{ result.title }}</a>
+                            <span> {{ result.displayed_link }} </span>
+                            <p>{{ result.snippet }}</p>
 
 
-                    <div class="result__links">
-                        <span class="badge--outline"> History </span>
-                        <span class="badge--outline"> About </span>
-                        <span class="badge--outline"> Contact </span>
+                            @if (result.sitelinks){
+                                <div class="result__links">
+
+                                    @for (sitelink of result.sitelinks.inline; track $index) {
+                                        <a [href]="sitelink.link">
+                                            <span class="badge--outline"> {{ sitelink.title }} </span>
+                                        </a>
+                                    }
+                                </div>
+                            }
+
+                    
+                        </div>
+
+                        @if (result.thumbnail){
+                            <div class="result__image">
+                                <img [src]="result.thumbnail" alt="">
+                            </div>    
+                        }                   
                     </div>
-                </div>
-                <div class="result__image">
-                    <img src="assets/image.png" alt="">
-                </div>        
-            </div>
-
-               <div class="result">
-                <div class="result__icon">
-                    <img src="assets/image.png" alt="" height="20px" width="20px">
-                </div>
-                <div class="result__info">
-                    <a href="">Starbucks Coffee Company</a>
-                    <span>https://www.austintexas.org &rsaquo; food-and-drink &rsaquo; coffeecoffeecoffee</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eum cum id ullam. Nam eligendi atque totam omnis velit neque nisi exercitationem explicabo, dolorem corporis minus sequi in rerum molestias </p>
-
-<!-- 
-                    <div class="result__links">
-                        <span class="badge--outline"> History </span>
-                        <span class="badge--outline"> About </span>
-                        <span class="badge--outline"> Contact </span>
-                    </div> -->
-                </div>
-                <div class="result__image">
-                    <img src="assets/image.png" alt="">
-                </div>        
-            </div>
-
-
-               <div class="result">
-                <div class="result__icon">
-                    <img src="assets/image.png" alt="" height="20px" width="20px">
-                </div>
-                <div class="result__info">
-                    <a href="">Starbucks Coffee Company</a>
-                    <span>https://www.austintexas.org &rsaquo; food-and-drink &rsaquo; coffeecoffeecoffee</span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea eum cum id ullam. Nam eligendi atque totam omnis velit neque nisi exercitationem explicabo, dolorem corporis minus sequi in rerum molestias </p>
-
-
-                    <div class="result__links">
-                        <span class="badge--outline"> History </span>
-                        <span class="badge--outline"> About </span>
-                        <span class="badge--outline"> Contact </span>
-                    </div>
-                </div>
-                <div class="result__image">
-                    <!-- <img src="assets/image.png" alt=""> -->
-                </div>        
-            </div>
-
-
-            
-
+                }
+            }
         </div>
         <div class="container__search">
             <!-- People also serch for -->

@@ -8,6 +8,7 @@ import { SearchComponent }  from '@components/search/search.component';
 import { ModalComponent }   from '@components/modal/modal.component';
 import { HeaderComponent }  from '@components/header/header.component';
 import { ConfirmComponent } from '@components/confirm/confirm.component';
+import { GeneralComponent } from '@components/general/general.component';
 
 // Services
 import { ThemeService } from '@services/theme.service';
@@ -16,7 +17,7 @@ import { ConfirmService } from '@services/confirm.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, SearchComponent, ModalComponent, ConfirmComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, SearchComponent, ModalComponent, ConfirmComponent, GeneralComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -10,7 +10,7 @@
     }
       <section class="home">
         <div class="container one">
-         
+          
           <app-search 
             (componentChange)="loadComponent($event)"
           />
@@ -24,6 +24,8 @@
       </section>
 
       <div class="bubble"></div>
+
+      <app-general />
 
       @if (currentComponent) {
         <ng-container
