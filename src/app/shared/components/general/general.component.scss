@@ -175,6 +175,9 @@
                 }
 
                 .search__link{
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
                     text-decoration: none;
                     color: var(--text-color);
 
@@ -182,13 +185,40 @@
                         display: flex;
                         align-items: center;
                         gap: 10px;
-                        width: 100%;
+                        // width: 100%;
                         height: min-content;
-                        padding: 15px 20px ;
+                        padding: 15px 20px;
                         background-color: #FFF;
                         border-radius: 8px;
-                        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+                        transition: .4s;
+
+                        &:hover{
+                            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.08);
+                        }
                     }
+                }
+
+                .links{
+                    width: 100%;
+                    display: flex;
+                    gap: 10px;
+                    
+                    .first, .second{
+                        width: 50%;
+                    }
+                }
+
+
+                .items{
+                    width: 100%;
+                    display: grid;
+                    // grid: 1rem;
+                    gap: 10px;
+                    grid-template: 1fr;
+                }
+
+                .items:has(.search__link:nth-child(5)){
+                    grid-template-columns: 1fr 1fr;
                 }
             }
         }

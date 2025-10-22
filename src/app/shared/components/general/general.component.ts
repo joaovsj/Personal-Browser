@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnChanges, OnInit } from '@angular/core';
 
 // Services
 import { CommunicationService } from '@services/communication.service';
@@ -22,32 +22,42 @@ export class GeneralComponent implements OnChanges, OnInit{
   public organicResults: any = "";
   public relatedSearches: any = "";
 
+
+  public firstColumn: any = "";
+  public secondColumn: any = "";
+
   public text = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo omnis reprehenderit repellat aliquam, rem quasi nulla, dicta laborum officia libero ea fuga aut modi velit fugiat minus natus enim! Tenetur cum placeat consequatur doloribus quisquam, magni ipsum natus temporibus, dolores vel id voluptatibus laudantium? Sed nihil dignissimos delectus doloremque, veniam, aut nobis possimus quo corporis beatae natus atque quidem eius, quis ullam! Voluptatibus beatae libero veniam provident itaque aut voluptate impedit assumenda. Obcaecati nam earum, voluptatum esse consectetur quibusdam enim placeat dolore, beatae asperiores quos itaque sint dolor tempore nesciunt, voluptatibus illo eaque neque aliquam quis porro aliquid iste qui.";
 
 
   constructor(
     private http: HttpClient,
-    private cummunicationService: CommunicationService
+    private cummunicationService: CommunicationService,
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    this.http.get('assets/mock-data.json').subscribe({
-      next: (res: any) => {
+    // this.http.get('assets/mock-data.json').subscribe({
+    //   next: (res: any) => {
 
-
-        this.organicResults = res.organic_results;
-        this.relatedSearches = res.related_searches;
-        console.log(this.relatedSearches);
-        console.log(res);
-      },
-      error: (err) =>{
-        console.log(err);
-      }
-    });
+    //     this.organicResults = res.organic_results;
+    //     this.relatedSearches = res.related_searches;  
+        
+    //   },
+    //   error: (err) =>{
+    //     console.log(err);
+    //   }
+    // });
   }
 
   ngOnChanges(){
     console.log(this.data);
+
+    if (this.data){
+      this.organicResults   = this.data.organic_results;
+      this.relatedSearches  = this.data.related_searches;  
+    }
+
+    // this.cd.detectChanges(); 
   }
 
   toggleFullText(){
@@ -55,6 +65,7 @@ export class GeneralComponent implements OnChanges, OnInit{
   }
 
   request(link: string){
+    this.data = "";
     this.cummunicationService.sendData(link);
   }
 }
