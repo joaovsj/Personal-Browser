@@ -1,5 +1,5 @@
 :host{
-    section{
+    .box{
         width: 70%;
         height: min-content;
         padding: 10px 60px;
@@ -98,7 +98,7 @@
                     border-radius: 8px;
                     color: var(--text-color);
                     background-color: var(--bg-color);
-                    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+                    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 2px 0px;
 
                     .result__icon{
                         width: 5%;
@@ -165,13 +165,14 @@
 
 
             .container__search{
-                margin-top: 40px;
+                margin-top: 20px;
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
                 h5{
                     font-size: calc(12px + .5vmin);
+                    margin-bottom: 20px;
                 }
 
                 .search__link{
@@ -189,6 +190,8 @@
                         height: min-content;
                         padding: 15px 20px;
                         background-color: #FFF;
+                        color: #000;
+                        font-weight: 500;
                         border-radius: 8px;
                         transition: .4s;
 
@@ -220,6 +223,43 @@
                 .items:has(.search__link:nth-child(5)){
                     grid-template-columns: 1fr 1fr;
                 }
+            }
+        }
+    }
+
+    .pagination{
+        // background-color: tomato;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 10vh;
+        width: 70%;
+        height: 15vh;
+        padding: 10px 60px;
+
+        .pagination_title{
+            // z-index: 9999;
+            color: var(--text-color);
+        }
+
+        .pagination__links{
+            // color: var(--secondary-color);
+            z-index: 9999;
+            display: flex;
+            gap: 5px;
+
+            li a{
+                text-decoration: none;
+                color: #888484;
+                cursor: pointer;
+                // font-weight: 600;
+            }
+
+            .current{
+                color: var(--secondary-color) !important;
+                font-weight: 800;
             }
         }
     }

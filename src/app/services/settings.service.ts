@@ -26,9 +26,10 @@ export class SettingsService {
     localStorage.setItem("serpApiKey", key);
   }
 
-  public searchGoogle(query: string, engine: string){
+  public searchGoogle(query: string, engine: string, start = 0){
     this.params = new HttpParams()
       .set("q", query)
+      .set("start", start)
       .set("engine", engine)
       .set("api_key", this.getApiKey());
 

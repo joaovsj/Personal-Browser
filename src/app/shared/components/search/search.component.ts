@@ -70,7 +70,9 @@ export class SearchComponent implements OnInit{
 
   makeRequest(data: any){
     const query = this.getQueryValue(data, "q");
-    this.request(query);
+    const start = Number(this.getQueryValue(data, "start")) || 0;
+
+    this.request(query, start);
   }
 
   private getQueryValue(urlString: string, param: string): string | null {
@@ -79,13 +81,11 @@ export class SearchComponent implements OnInit{
   }
 
 
-  request(query: any){
+  request(query: any, start = 0){
     this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
       
-    this.#settingService.searchGoogle(query,this.badgeSelected).subscribe({
+    this.#settingService.searchGoogle(query,this.badgeSelected, start).subscribe({
       next: (res) => {
-
-        console.log(res);
         this.componentChange.emit({
           badge: this.badgeSelected,
           data: res 
@@ -101,7 +101,7 @@ export class SearchComponent implements OnInit{
         console.log(err);
       },
       complete: () => {
-        console.log("request finished");
+
       },
     })
   }  

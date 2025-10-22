@@ -1,4 +1,4 @@
-<section>
+<section class="box">
     <div class="container">
         <!-- <div class="container__overview" [class.expanded]="fullText">
            <div >
@@ -60,7 +60,7 @@
  
             @if(this.relatedSearches){
 
-                <h5>People Also Search for</h5>
+                <h5>People also search for</h5>
 
                 <div class="items">
                     @for (search of this.relatedSearches; track $index) {
@@ -78,4 +78,25 @@
             } 
         </div>
     </div>
+</section>
+<section class="pagination">
+    <span class="pagination__title">Personal Browser</span>
+    <ul class="pagination__links">
+
+        @if (this.pages && this.pages.length && this.pages[0].key > 1) {
+            <li class="pagination__ellipsis">...</li>
+        }
+
+        @for (item of this.pages; track $index) {
+            <li>
+                <a (click)="request(item.value)" [class.current]="item.value == true" >
+                    {{item.key }}
+                </a>
+            </li>
+        }
+
+        @if (this.pages && this.pages.length && this.pages[this.pages.length - 1].key > 10) {
+            <li class="pagination__ellipsis">...</li>
+        }
+    </ul>
 </section>
