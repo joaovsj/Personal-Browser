@@ -72,6 +72,10 @@ export class SearchComponent implements OnInit{
     const query = this.getQueryValue(data, "q");
     const start = Number(this.getQueryValue(data, "start")) || 0;
 
+    this.searchForm.patchValue({
+      query: query
+    });
+
     this.request(query, start);
   }
 
