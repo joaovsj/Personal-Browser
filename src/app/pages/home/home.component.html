@@ -4,7 +4,6 @@
 <app-confirm />
 
 <main>
-
     @if(showModal){
       <app-modal (closeModal)="toggleModal()"/>
     }
@@ -26,7 +25,7 @@
 
       <div class="bubble"></div>
 
-      <!-- <app-general /> -->
+      <app-general />
 
       @if(showSpinner){
         <app-spinner />
@@ -37,6 +36,5 @@
           [ngComponentOutletInputs]="{ data: data }">
         </ng-container>
       }
-      
 </main>
 <app-footer /> 
