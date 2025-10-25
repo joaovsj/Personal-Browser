@@ -2,24 +2,33 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 // Components
-
 import { FooterComponent }  from '@components/footer/footer.component';
 import { SearchComponent }  from '@components/search/search.component';
 import { ModalComponent }   from '@components/modal/modal.component';
 import { HeaderComponent }  from '@components/header/header.component';
 import { ConfirmComponent } from '@components/confirm/confirm.component';
-import { GeneralComponent } from '@components/general/general.component';
 import { SpinnerComponent } from '@components/spinner/spinner.component';
+import { ImagesComponent }  from '@components/images/images.component';
 
 // Services
-import { ThemeService } from '@services/theme.service';
+import { ThemeService }   from '@services/theme.service';
 import { ConfirmService } from '@services/confirm.service';
+
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, SearchComponent, ModalComponent, ConfirmComponent, GeneralComponent, SpinnerComponent],
+  imports: [
+    CommonModule, 
+    HeaderComponent, 
+    FooterComponent, 
+    SearchComponent, 
+    ModalComponent, 
+    ConfirmComponent, 
+    SpinnerComponent,
+    ImagesComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -80,8 +89,8 @@ export class HomeComponent {
 
     switch (badge) {
       case 'images':
-        // const { ImagesComponent } = await import('@components/images/images.component');
-        // this.currentComponent = ImagesComponent;
+        const { ImagesComponent } = await import('@components/images/images.component');
+        this.currentComponent = ImagesComponent;
         break;
 
       case 'news':

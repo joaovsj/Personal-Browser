@@ -1,1 +1,18 @@
-<p>images works!</p>
+
+<section>
+    <div class="gallery">
+        @for (image of data; track $index) {
+            <div class="gallery__card" (mousemove)="showValues($event)">
+                <img [src]="image.thumbnail" [alt]="image.title" [title]="image.title" >
+                
+                <div class="info"
+                    [style.top]="clientTop + 'px'"
+                    [style.left]="clientLeft + 'px'"
+                >
+                    <span class="info__title">{{ image.title }}</span>
+                    <span class="info__link">{{ image.raw_link }}</span>
+                </div>
+            </div>
+        }
+    </div>
+</section>
