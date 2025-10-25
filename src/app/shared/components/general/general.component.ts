@@ -52,7 +52,7 @@ export class GeneralComponent implements OnChanges, OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.http.get('assets/mock-data.json').subscribe({
+    this.http.get('assets/mocks/general.json').subscribe({
       next: (res: any) => {
 
         console.log(res);

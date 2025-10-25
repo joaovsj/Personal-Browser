@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit{
   public searchForm: FormGroup;
 
   badges = [
-    { label: 'IA Insights',   value: 'ai',        icon: 'bi bi-stars' },
+    // { label: 'IA Insights',   value: 'ai',        icon: 'bi bi-stars' },
     { label: 'Images',        value: 'images',    icon: 'bi bi-images' },
     { label: 'Shopping',      value: 'shopping',  icon: 'bi bi-shop' },
     { label: 'News',          value: 'news',      icon: 'bi bi-newspaper' },
