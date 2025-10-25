@@ -116,6 +116,11 @@ export class GeneralComponent implements OnChanges, OnInit{
 
     console.log(this.pages);
     this.cummunicationService.sendData(link);
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
 

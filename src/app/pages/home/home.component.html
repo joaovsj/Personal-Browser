@@ -13,6 +13,7 @@
           
           <app-search 
             (componentChange)="loadComponent($event)"
+            (spinner)="toggleSpinner($event)"
           />
 
         </div>
@@ -27,7 +28,10 @@
 
       <!-- <app-general /> -->
 
-      @if (currentComponent) {
+      @if(showSpinner){
+        <app-spinner />
+        
+      }@else if (currentComponent) {
         <ng-container
           [ngComponentOutlet]="currentComponent"
           [ngComponentOutletInputs]="{ data: data }">

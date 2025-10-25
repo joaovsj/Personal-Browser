@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit{
   #fb                   = inject(FormBuilder);
 
   @Output() componentChange = new EventEmitter<{badge: string, data: any}>();
+  @Output() spinner         = new EventEmitter<boolean>(false);
 
   public searchForm: FormGroup;
 
@@ -65,6 +66,7 @@ export class SearchComponent implements OnInit{
     if(this.searchForm.invalid) return;
 
     const query = this.searchForm.value.query 
+    this.spinner.emit(true);
     this.request(query);
   }
 
@@ -76,6 +78,7 @@ export class SearchComponent implements OnInit{
       query: query
     });
 
+    this.spinner.emit(true);
     this.request(query, start);
   }
 
@@ -87,9 +90,11 @@ export class SearchComponent implements OnInit{
 
   request(query: any, start = 0){
     this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
-      
+    
     this.#settingService.searchGoogle(query,this.badgeSelected, start).subscribe({
       next: (res) => {
+
+        this.spinner.emit(true);
         this.componentChange.emit({
           badge: this.badgeSelected,
           data: res 
@@ -105,7 +110,7 @@ export class SearchComponent implements OnInit{
         console.log(err);
       },
       complete: () => {
-
+        this.spinner.emit(false);
       },
     })
   }  

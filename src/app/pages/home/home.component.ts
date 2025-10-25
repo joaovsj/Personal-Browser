@@ -9,15 +9,17 @@ import { ModalComponent }   from '@components/modal/modal.component';
 import { HeaderComponent }  from '@components/header/header.component';
 import { ConfirmComponent } from '@components/confirm/confirm.component';
 import { GeneralComponent } from '@components/general/general.component';
+import { SpinnerComponent } from '@components/spinner/spinner.component';
 
 // Services
 import { ThemeService } from '@services/theme.service';
 import { ConfirmService } from '@services/confirm.service';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent, SearchComponent, ModalComponent, ConfirmComponent, GeneralComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, SearchComponent, ModalComponent, ConfirmComponent, GeneralComponent, SpinnerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -28,6 +30,8 @@ export class HomeComponent {
   
   public currentComponent: any = "";
   public showModal    : boolean = false;
+  public showSpinner  : boolean = false;
+    
   public gif          : string  = "";
   public themeDefined : string  = "";
   public color        : string  = "";
@@ -66,8 +70,12 @@ export class HomeComponent {
   public toggleModal() {
     this.showModal = !this.showModal;
   }
-  
-async loadComponent({ badge, data }: { badge: string; data: any }) {
+
+  public toggleSpinner(status: boolean) {
+    this.showSpinner = status;
+  }
+    
+  async loadComponent({ badge, data }: { badge: string; data: any }) {
     this.data = data;
 
     switch (badge) {
