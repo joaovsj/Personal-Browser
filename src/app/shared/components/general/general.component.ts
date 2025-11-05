@@ -52,21 +52,21 @@ export class GeneralComponent implements OnChanges, OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.http.get('assets/mocks/general.json').subscribe({
-      next: (res: any) => {
+    // this.http.get('assets/mocks/general.json').subscribe({
+    //   next: (res: any) => {
 
-        console.log(res);
+    //     console.log(res);
 
-        this.organicResults   = res.organic_results;
-        this.relatedSearches  = res.related_searches;  
-        this.pages            = this.fillMissIndex(res.serpapi_pagination);
+    //     this.organicResults   = res.organic_results;
+    //     this.relatedSearches  = res.related_searches;  
+    //     this.pages            = this.fillMissIndex(res.serpapi_pagination);
 
-        console.log(this.pages);
-      },
-      error: (err) =>{
-        console.log(err);
-      }
-    });
+    //     console.log(this.pages);
+    //   },
+    //   error: (err) =>{
+    //     console.log(err);
+    //   }
+    // });
   }
 
 

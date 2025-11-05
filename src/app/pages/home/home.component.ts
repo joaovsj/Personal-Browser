@@ -87,8 +87,12 @@ export class HomeComponent {
   async loadComponent({ badge, data }: { badge: string; data: any }) {
     this.data = data;
 
+    console.log(data);
+    
+    console.log(badge);
+
     switch (badge) {
-      case 'images':
+      case 'google_images_light':
         const { ImagesComponent } = await import('@components/images/images.component');
         this.currentComponent = ImagesComponent;
         break;

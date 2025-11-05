@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-images',
@@ -8,11 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './images.component.html',
   styleUrl: './images.component.scss'
 })
-export class ImagesComponent implements OnInit{
+export class ImagesComponent implements OnInit, OnChanges{
 
   @Input() data: any;
   
-  
+  public images: any = [];
+
   public clientTop = 100
   public clientLeft = 100
 
@@ -20,29 +21,26 @@ export class ImagesComponent implements OnInit{
     private http: HttpClient,
   ) {}
 
-  showValues(event: MouseEvent){
-
-    this.clientTop = event.clientY - 1000;
-    this.clientLeft = event.clientX - 1000;
-
-
-    console.log(event.clientX, event.clientY);
-
-  }
 
   ngOnInit(){
-    this.http.get('assets/mocks/images.json').subscribe({
-      next: (res: any) => {
+    // this.http.get('assets/mocks/images.json').subscribe({
+    //   next: (res: any) => {
 
-        console.log(res);
+    //     console.log(res);
 
 
-        this.data = res.images_results;
-      },
-      error: (err) =>{
-        console.log(err);
-      }
-    });
+    //     this.data = res.images_results;
+    //   },
+    //   error: (err) =>{
+    //     console.log(err);
+    //   }
+    // });
+  }
+
+  ngOnChanges(){
+    if(this.data){
+      this.images = this.data.images_results;
+    }
   }
 
 }

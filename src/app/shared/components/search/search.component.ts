@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit{
 
   badges = [
     // { label: 'IA Insights',   value: 'ai',        icon: 'bi bi-stars' },
-    { label: 'Images',        value: 'images',    icon: 'bi bi-images' },
+    { label: 'Images',        value: 'google_images_light',    icon: 'bi bi-images' },
     { label: 'Shopping',      value: 'shopping',  icon: 'bi bi-shop' },
     { label: 'News',          value: 'news',      icon: 'bi bi-newspaper' },
     { label: 'Jobs',          value: 'jobs',      icon: 'bi bi-folder2-open' },
@@ -90,6 +90,8 @@ export class SearchComponent implements OnInit{
 
   request(query: any, start = 0){
     this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
+
+    console.log(this.badgeSelected);
     
     this.#settingService.searchGoogle(query,this.badgeSelected, start).subscribe({
       next: (res) => {
@@ -102,6 +104,7 @@ export class SearchComponent implements OnInit{
 
       },
       error: (err) => {
+        this.spinner.emit(false);
 
         if(err.status == 401){
           this.#confirmService.show("Please provide your correct SerpApi key in settings.", "info");

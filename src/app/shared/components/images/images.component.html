@@ -1,18 +1,17 @@
 
 <section>
     <div class="gallery">
-        @for (image of data; track $index) {
-            <div class="gallery__card" (mousemove)="showValues($event)">
-                <img [src]="image.thumbnail" [alt]="image.title" [title]="image.title" >
+        @for (image of images; track $index) {
+            <a href="{{ image.raw_link }}" target="_blank" title="{{ image.raw_link }}">
+                <div class="gallery__card">
+                    <img [src]="image.thumbnail" [alt]="image.title" >
                 
-                <div class="info"
-                    [style.top]="clientTop + 'px'"
-                    [style.left]="clientLeft + 'px'"
-                >
-                    <span class="info__title">{{ image.title }}</span>
-                    <span class="info__link">{{ image.raw_link }}</span>
+                    <div class="info">
+                        <span class="info__title">{{ image.title }}</span>
+                        <!-- <span class="info__link">{{ image.raw_link }}</span> -->
+                    </div>
                 </div>
-            </div>
+            </a>
         }
     </div>
 </section>
