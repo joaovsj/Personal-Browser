@@ -1,0 +1,40 @@
+<section>
+    <div class="filters">
+        <div class="filters__title">
+            <i class="bi bi-filter"></i>
+            <h4>Filters</h4>
+        </div>
+    </div>
+    <div class="products">
+
+        @for (item of items; track $index) {
+            <div class="products__product">
+                <img src="{{ item.thumbnail }}" alt="">
+
+                <div class="product__info">
+                    <a href="{{ item.product_link }}" target="_blank" class="product__name">{{ item.title }} </a>
+                    <span>
+                        <img src="{{ item.source_icon }}" alt="">
+                    </span> <!-- espaço vazio p/ alinhar -->
+                </div>
+
+                <div class="product__bottom">
+        
+                    @if(item.rating){
+                        <div class="product__rating">
+                            <i class="bi bi-star-fill"></i> {{ item.rating }} ({{ item.reviews }}) 
+                        </div>
+                    }
+
+                   
+                    <div class="product__price">{{ item.price }}</div>
+                </div>
+            </div>
+        }
+
+ 
+
+        
+      
+    </div>  
+</section>

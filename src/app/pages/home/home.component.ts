@@ -8,11 +8,12 @@ import { ModalComponent }   from '@components/modal/modal.component';
 import { HeaderComponent }  from '@components/header/header.component';
 import { ConfirmComponent } from '@components/confirm/confirm.component';
 import { SpinnerComponent } from '@components/spinner/spinner.component';
-import { ImagesComponent }  from '@components/images/images.component';
+import { ShoppingComponent } from '@components/shopping/shopping.component';
 
 // Services
 import { ThemeService }   from '@services/theme.service';
 import { ConfirmService } from '@services/confirm.service';
+
 
 
 
@@ -27,7 +28,7 @@ import { ConfirmService } from '@services/confirm.service';
     ModalComponent, 
     ConfirmComponent, 
     SpinnerComponent,
-    ImagesComponent
+    ShoppingComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
