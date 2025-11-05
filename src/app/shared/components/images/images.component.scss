@@ -75,6 +75,7 @@
                     flex-direction: column;
                     opacity: .89;
                     z-index: -1;
+                    font-size: calc(8px + 1vmin);
                     
                     .info__title{
                         font-weight: bold;
@@ -92,13 +93,38 @@
     }
 
     @media (max-width: 1200px) {
-        .gallery { column-count: 3; }
+
+        section{
+            .gallery { 
+                column-count: 3; 
+            }
+        }
+
     }
     @media (max-width: 800px) {
-        .gallery { column-count: 2; }
+        section{
+            .gallery { 
+                column-count: 2; 
+
+                .gallery__card {
+                    img{
+                        border-radius: 8px 8px 0 0;
+                    } 
+
+                    .info{
+                        height: min-content;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
     }
     @media (max-width: 500px) {
-        .gallery { column-count: 1; }
+        section{
+            .gallery { 
+                column-count: 1; 
+            }
+        }
     }
 
 }
