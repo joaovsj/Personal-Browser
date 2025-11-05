@@ -30,7 +30,7 @@ export class SearchComponent implements OnInit{
   badges = [
     // { label: 'IA Insights',   value: 'ai',        icon: 'bi bi-stars' },
     { label: 'Images',        value: 'google_images_light',    icon: 'bi bi-images' },
-    { label: 'Shopping',      value: 'shopping',  icon: 'bi bi-shop' },
+    { label: 'Shopping',      value: 'google_shopping_light',  icon: 'bi bi-shop' },
     { label: 'News',          value: 'news',      icon: 'bi bi-newspaper' },
     { label: 'Jobs',          value: 'jobs',      icon: 'bi bi-folder2-open' },
   ];
