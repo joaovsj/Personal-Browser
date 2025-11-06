@@ -1,12 +1,16 @@
 <section [formGroup]="form">
     <div class="filters">
       
-    <div class="filters__title">
+    <button class="expander__button" (click)="expand()" [class.top]="isExpanded">
+      <i class="bi bi-caret-down-fill"></i>
+    </button>
+
+    <div class="filters__title" [style.height]="windowWidth < 500 ? (isExpanded ? 'auto' : '100%') : 'auto'">
       <i class="bi bi-filter"></i>
       <h4>Filters</h4>
     </div>
 
-    <div class="filters__controls">
+    <div class="filters__controls" [class.expanded]="isExpanded">
 
       <span>Value:</span>
       <label class="label__price">
@@ -36,9 +40,12 @@
         Store:
         <select formControlName="source">
           <option value="">All</option>
-          <!-- <option *ngFor="let s of allItems.map(i => i.source).filter((v, i, a) => a.indexOf(v) === i)">
-            {{ s }}
-          </option> -->
+
+          @for (source of sources; track $index) {
+            <option value="{{ source }}">
+              {{ source }}
+            </option>
+          }
         </select>
       </label>
 
@@ -62,10 +69,6 @@
      
   </div>
 
-        
-
-
-  
     <div class="products">
 
         @for (item of items; track $index) {

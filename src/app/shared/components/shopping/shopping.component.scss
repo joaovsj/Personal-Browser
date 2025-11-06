@@ -16,6 +16,10 @@
             color: #000;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+            .expander__button{
+                display: none;
+            }
+
 
             .filters__title{
                 font-size: calc(10px + 1vmin);
@@ -23,6 +27,7 @@
                 display: flex;
                 gap: 5px;
                 padding: 10px;
+                height: auto;
                 
                 i{
                     color: var(--secondary-color);
@@ -118,7 +123,8 @@
             flex: 1;
             height: min-content;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
+            justify-content: start;
             gap: 10px;
 
             
@@ -203,6 +209,78 @@
             /**/
 
 
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .products{
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+
+            // .products__product {
+            //     min-width: 100%;
+            // }
+        } 
+    }
+        
+    @media (max-width: 500px) {
+        section{
+            width: 93%;
+            flex-direction: column;
+
+            .filters{
+                width: 100%;
+                position: relative;
+                // display: flex;
+                // align-items: center;
+                z-index: 99;
+                margin-bottom: 20px;
+                
+                .expander__button{
+                    position: absolute;
+                    display: block;
+                    right: 5%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: transparent;
+                    border: none;
+                    font-size: calc(11px + 1vmin);
+                }   
+
+                .filters__title{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .filters__controls{
+                    transition: .2s;
+                    height: 0;
+                    overflow: hidden;                  
+                }
+
+                .expanded{
+                    height: auto;
+                    overflow: visible;
+                    padding: 20px;
+                }
+
+                .top{
+                    top: 5%;
+                    transform: translateY(0%);
+                }
+            }
+
+            .products{
+                grid-template-columns: 1fr;
+                justify-content: center;
+
+                .products__product {
+                    min-width: 100%;
+                }
+            }
+
+         
         }
     }
 }

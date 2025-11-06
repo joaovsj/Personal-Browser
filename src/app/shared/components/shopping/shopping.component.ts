@@ -24,6 +24,9 @@ export class ShoppingComponent implements OnChanges, OnInit{
   public allItems: any[] = [];
   public items: any[] = [];
   public form!: FormGroup;
+  public sources: any = [];
+  public isExpanded: boolean = false;
+  public windowWidth: number = 0;
 
   constructor(
     private http: HttpClient,
@@ -42,6 +45,8 @@ export class ShoppingComponent implements OnChanges, OnInit{
     }, {
       validators: [this.priceRangeValidator]
     });
+
+    this.windowWidth = window.innerWidth;
   }
 
   priceRangeValidator(form: AbstractControl) {
@@ -56,6 +61,9 @@ export class ShoppingComponent implements OnChanges, OnInit{
 
   ngOnInit() {
 
+     window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth;
+    });
 
     this.http.get('assets/mocks/shopping.json').subscribe({
       next: (res: any) => {
@@ -65,6 +73,9 @@ export class ShoppingComponent implements OnChanges, OnInit{
         if (res) {
           this.allItems = res.shopping_results;
           this.items = [...this.allItems];
+
+          this.sources = Array.from(new Set(this.allItems.map(item => item.source)));
+          console.log(this.sources  );
         }
 
       },
@@ -77,6 +88,14 @@ export class ShoppingComponent implements OnChanges, OnInit{
 
   ngOnChanges(){
     console.log(this.data);
+
+    // if (this.data) {
+    //   this.allItems = this.data.shopping_results;
+    //   this.items = [...this.allItems];
+
+    //   this.sources = Array.from(new Set(this.allItems.map(item => item.source)));
+    // }
+
   }
 
   applyFilters() {
@@ -120,5 +139,9 @@ export class ShoppingComponent implements OnChanges, OnInit{
       discounted: false
     });
     this.items = [...this.allItems];
+  }
+
+  public expand(){
+    this.isExpanded = !this.isExpanded;
   }
 }

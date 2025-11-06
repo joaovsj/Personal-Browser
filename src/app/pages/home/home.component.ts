@@ -8,11 +8,11 @@ import { ModalComponent }   from '@components/modal/modal.component';
 import { HeaderComponent }  from '@components/header/header.component';
 import { ConfirmComponent } from '@components/confirm/confirm.component';
 import { SpinnerComponent } from '@components/spinner/spinner.component';
-import { ShoppingComponent } from '@components/shopping/shopping.component';
 
 // Services
 import { ThemeService }   from '@services/theme.service';
 import { ConfirmService } from '@services/confirm.service';
+import { ShoppingComponent } from '@components/shopping/shopping.component';
 
 
 
@@ -23,7 +23,7 @@ import { ConfirmService } from '@services/confirm.service';
   imports: [
     CommonModule, 
     HeaderComponent, 
-    FooterComponent, 
+    // FooterComponent, 
     SearchComponent, 
     ModalComponent, 
     ConfirmComponent, 
@@ -96,6 +96,11 @@ export class HomeComponent {
       case 'google_images_light':
         const { ImagesComponent } = await import('@components/images/images.component');
         this.currentComponent = ImagesComponent;
+        break;
+
+      case 'google_shopping_light':
+        const { ShoppingComponent } = await import('@components/shopping/shopping.component');
+        this.currentComponent = ShoppingComponent;
         break;
 
       case 'news':
