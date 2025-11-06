@@ -11,7 +11,7 @@
       <span>Value:</span>
       <label class="label__price">
         Min price:
-        <input type="number" formControlName="minPrice">
+        <input type="number" formControlName="minPrice" min="0">
       </label>
 
       <label class="label__price">
@@ -74,18 +74,22 @@
 
                 <div class="product__info">
                     <a href="{{ item.product_link }}" target="_blank" class="product__name">{{ item.title }} </a>
+                    
                     <span>
                         <img src="{{ item.source_icon }}" alt="">
                     </span> <!-- espaço vazio p/ alinhar -->
                 </div>
 
                 <div class="product__bottom">
-        
-                    @if(item.rating){
-                        <div class="product__rating">
-                            <i class="bi bi-star-fill"></i> {{ item.rating }} ({{ item.reviews }}) 
-                        </div>
-                    }
+                    
+                    <div>
+                        <p>{{ item.source }}</p>
+                        @if(item.rating){
+                            <div class="product__rating">
+                                <i class="bi bi-star-fill"></i> {{ item.rating }} ({{ item.reviews | shortnumber}})
+                            </div>
+                        }
+                    </div>
              
                     <div class="product__price">{{ item.price }}</div>
                 </div>

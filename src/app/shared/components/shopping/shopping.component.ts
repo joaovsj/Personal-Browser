@@ -1,16 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+// Pipes
+import { ShortnumberPipe } from '@pipes/shortnumber.pipe';
 
 // Services
 import { CommunicationService } from '@services/communication.service';
+import { ConfirmService }       from '@services/confirm.service';
 
 @Component({
   selector: 'app-shopping',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ShortnumberPipe],
   templateUrl: './shopping.component.html',
   styleUrl: './shopping.component.scss'
 })
@@ -25,17 +28,30 @@ export class ShoppingComponent implements OnChanges, OnInit{
   constructor(
     private http: HttpClient,
     private fb: FormBuilder,
-    private communicationService: CommunicationService
+    private communicationService: CommunicationService,
+    private confirmService: ConfirmService
   ) {
 
     this.form = this.fb.group({
-      minPrice: [0],
-      maxPrice: [1000],
-      minRating: [0],
+      minPrice: [0, [Validators.min(0)]],
+      maxPrice: [1000, [Validators.min(0)]],
+      minRating: [0, [Validators.min(0), Validators.max(5)]],
       source: [''],
       freeDelivery: [false],
       discounted: [false]
+    }, {
+      validators: [this.priceRangeValidator]
     });
+  }
+
+  priceRangeValidator(form: AbstractControl) {
+    const min = form.get('minPrice')?.value;
+    const max = form.get('maxPrice')?.value;
+
+    if (min !== null && max !== null && Number(min) > Number(max)) {
+      return { priceRangeInvalid: true };
+    }
+    return null;
   }
 
   ngOnInit() {
@@ -64,6 +80,17 @@ export class ShoppingComponent implements OnChanges, OnInit{
   }
 
   applyFilters() {
+
+
+    if (this.form.invalid) {
+      if (this.form.hasError('priceRangeInvalid')) {
+        this.confirmService.show('O preço mínimo não pode ser maior que o máximo.');
+      } else {
+        this.confirmService.show('Verifique os campos de filtro.', 'error');
+      }
+      return;
+    }
+
   const filters = this.form.value;
 
   this.items = this.allItems.filter(item => {
