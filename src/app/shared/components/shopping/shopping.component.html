@@ -1,10 +1,71 @@
-<section>
+<section [formGroup]="form">
     <div class="filters">
-        <div class="filters__title">
-            <i class="bi bi-filter"></i>
-            <h4>Filters</h4>
-        </div>
+      
+    <div class="filters__title">
+      <i class="bi bi-filter"></i>
+      <h4>Filters</h4>
     </div>
+
+    <div class="filters__controls">
+
+      <span>Value:</span>
+      <label class="label__price">
+        Min price:
+        <input type="number" formControlName="minPrice">
+      </label>
+
+      <label class="label__price">
+        Max price:
+        <input type="number" formControlName="maxPrice">
+      </label>
+
+
+       <span>Rating:</span>
+      <label>
+        Min rating:
+        <select formControlName="minRating">
+          <option value="0">All</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="4.5">4.5+</option>
+        </select>
+      </label>
+
+       <span>Stores:</span>
+      <label>
+        Store:
+        <select formControlName="source">
+          <option value="">All</option>
+          <!-- <option *ngFor="let s of allItems.map(i => i.source).filter((v, i, a) => a.indexOf(v) === i)">
+            {{ s }}
+          </option> -->
+        </select>
+      </label>
+
+       <span>Delivery:</span>
+      <label class="delivery__option">
+        <input type="checkbox" formControlName="freeDelivery">
+        Free delivery
+      </label>
+
+      <label class="delivery__option">
+        <input type="checkbox" formControlName="discounted">
+        Only discounted
+      </label>
+
+      <div class="filters__buttons">
+        <button type="button" class="button__submit" (click)="applyFilters()">Apply Filters</button>
+        <button type="button" class="button__reset" (click)="resetFilters()">Reset</button>
+      </div>
+    </div>
+
+     
+  </div>
+
+        
+
+
+  
     <div class="products">
 
         @for (item of items; track $index) {
@@ -25,16 +86,11 @@
                             <i class="bi bi-star-fill"></i> {{ item.rating }} ({{ item.reviews }}) 
                         </div>
                     }
-
-                   
+             
                     <div class="product__price">{{ item.price }}</div>
                 </div>
             </div>
         }
 
- 
-
-        
-      
     </div>  
 </section>
