@@ -13,10 +13,7 @@ export class ImagesComponent implements OnInit, OnChanges{
   @Input() data: any;
   
   public images: any = [];
-
-  public clientTop = 100
-  public clientLeft = 100
-
+  
   constructor(
     private http: HttpClient,
   ) {}

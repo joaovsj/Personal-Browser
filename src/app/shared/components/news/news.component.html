@@ -1,1 +1,32 @@
-<p>news works!</p>
+<section>
+
+    @for (news of news_results; track $index) {
+        <div class="box">
+            <div class="box__image">
+                <img [src]="news.thumbnail" alt="">
+            </div>
+            <div class="box__info">
+                
+                <h5 class="title">{{ news.title }}</h5>
+                <span class="source">{{ news.source }}</span>
+
+                <p> {{ news.snippet }} </p>
+                <span class="caption">{{ news.date }}</span>
+            </div>
+        </div>
+    }
+
+    <div class="pagination">
+        
+        @if(this.previous){
+            <a (click)="goToPage(this.previous)">
+                &lt; Previous
+            </a>
+        }
+   
+        
+        <a (click)="goToPage(this.next)">
+            Next &gt;
+        </a>
+    </div>
+</section>

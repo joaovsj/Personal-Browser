@@ -1,0 +1,134 @@
+{
+  "search_metadata": {
+    "id": "6910d2db0e4be0b9ff451d42",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/10b733be903ab5ef/6910d2db0e4be0b9ff451d42.json",
+    "created_at": "2025-11-09 17:43:55 UTC",
+    "processed_at": "2025-11-09 17:43:55 UTC",
+    "google_news_light_url": "https://www.google.com/search?q=coffee&oq=coffee&sourceid=chrome&ie=UTF-8&gbv=1&tbm=nws",
+    "raw_html_file": "https://serpapi.com/searches/10b733be903ab5ef/6910d2db0e4be0b9ff451d42.html",
+    "total_time_taken": 1.81
+  },
+  "search_parameters": {
+    "engine": "google_news_light",
+    "q": "coffee",
+    "google_domain": "google.com",
+    "device": "desktop"
+  },
+  "search_information": {
+    "query_displayed": "coffee",
+    "news_results_state": "Results for exact spelling"
+  },
+  "news_results": [
+    {
+      "position": 1,
+      "title": "A Chinese coffee shop called itself People’s Cafe. That name got it roasted.",
+      "link": "https://www.cnn.com/2025/11/09/china/china-people-cafe-change-name-intl-hnk",
+      "source": "CNN",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTox1dblbtrOYL8gWBXqIX5dkqK0zlhKt9LCHOZVmR97klmofj6iymPkBkcYg&s",
+      "snippet": "A Chinese coffee chain has apologized and changed its name after state media roasted it for misusing a word revered by the nation's...",
+      "date": "11 hours ago"
+    },
+    {
+      "position": 2,
+      "title": "Dutch Bros Coffee plans first St. Louis County location",
+      "link": "https://www.ksdk.com/article/news/local/business-journal/dutch-bros-coffee-plans-st-louis-county-location/63-f369e62e-88fa-4d30-994c-a5aef5f5724d",
+      "source": "KSDK",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3bvrqiHCF_pNB9CKGYek_U9GTd5Wd8JlmUmRBlBC-s5eK3gd1FuOQe6IphQ&s",
+      "snippet": "A drive-thru coffee shop is planning its first in St. Louis County.",
+      "date": "1 day ago"
+    },
+    {
+      "position": 3,
+      "title": "Coffee may help protect against A-fib, the most common irregular heartbeat, study finds",
+      "link": "https://www.nbcnews.com/health/heart-health/coffee-may-help-protect-against-afib-study-finds-rcna242576",
+      "source": "NBC News",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs5Sr7-YdCBl89nygCI8eqRXB5EKZaIugDpnTQ2p8e7lqPHdx34LFEM7mD3A&s",
+      "snippet": "Drinking caffeinated coffee is safe for people with atrial fibrillation and may help protect against recurrence of the disorder, a new study...",
+      "date": "3 hours ago"
+    },
+    {
+      "position": 4,
+      "title": "Coffee has \"astounding\" impact on irregular heartbeat in world-first trial",
+      "link": "https://newatlas.com/heart-disease/coffee-irregular-heartbeat-trial/",
+      "source": "New Atlas",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBaQO5HKCgAam4N9Xmy6obgHx-6plGLHQQje7x0b2AYeS1PLiX0Nfc5cHcTw&s",
+      "snippet": "New research overturns common wisdom: daily coffee consumption safely reduces atrial fibrillation (AF) events, offering protection for your...",
+      "date": "3 hours ago"
+    },
+    {
+      "position": 5,
+      "title": "Starbucks Just Proved Its Coffee Shop Experience Doesn’t Matter",
+      "link": "https://www.forbes.com/sites/christopherwalton/2025/11/09/starbucks-just-proved-its-coffee-shop-experience-doesnt-matter/",
+      "source": "Forbes",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDckf3LttVbXXMyuwZYem9MZvdqVx8IFm9ApbBVtRoQ1xNSctPFsXfutvrig&s",
+      "snippet": "Last week Starbucks announced that its coffee delivery business is now a $1.0 billion business. Yes, that's right, $1.0 billion. With a “B.”.",
+      "date": "12 minutes ago"
+    },
+    {
+      "position": 6,
+      "title": "Can coffee help relieve constipation? Here’s how it makes you poop naturally",
+      "link": "https://timesofindia.indiatimes.com/life-style/food-news/can-coffee-help-relieve-constipation-heres-how-it-makes-you-poop-naturally/articleshow/125192628.cms",
+      "source": "The Times of India",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIhh0OizDErXckK2BfjjLS-MDT2n2qxYzQCj5KAwV0JTpTs99zrVwzeHB02Q&s",
+      "snippet": "Your morning coffee might do more than just wake you up. New research suggests it can help with constipation. Caffeinated coffee stimulates...",
+      "date": "8 hours ago"
+    },
+    {
+      "position": 7,
+      "title": "LI coffee spot expands to 2nd location",
+      "link": "https://www.newsday.com/lifestyle/restaurants/karmic-grind-oyster-bay-pupr27t8",
+      "source": "Newsday",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRENf4AT3xCJ26kNUfuIHHy38sLpeQYzpyk1sbxheeczCNbXBX72p_QkFRwHg&s",
+      "snippet": "The first Karmic Grind, a chic cafe with pastel-colored merch that asks patrons to \"grind & be kind,\" opened seven years ago in Locust...",
+      "date": "3 hours ago"
+    },
+    {
+      "position": 8,
+      "title": "Popular coffee chain files for bankruptcy",
+      "link": "https://www.masslive.com/news/2025/11/popular-coffee-chain-files-for-bankruptcy.html",
+      "source": "MassLive.com",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-4fxqkDoCv72GFMmCGIK1nPgrH_eP-9h-OKcPmei72FgzkgsBtuYWL0TmBQ&s",
+      "snippet": "Florida-based coffee chain The Blend Coffee & Cocktails filed for Chapter 11 bankruptcy Tuesday. The chain listed its liabilities as between...",
+      "date": "2 days ago"
+    },
+    {
+      "position": 9,
+      "title": "15 Coffee Gifts That’ll Impress Even the Most Caffeinated People You Know",
+      "link": "https://www.bonappetit.com/story/gifts-for-coffee-lovers-2025",
+      "source": "Bon Appétit: Recipes, Cooking, Entertaining, Restaurants | Bon Appétit",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS47Thh8fhQ6IY7cOUy4NbJRILJCdJcblGUD8ln9WZjRrG2q4hTqRMlspgJ6A&s",
+      "snippet": "These are the best gifts for coffee lovers, from coffee subscriptions to French presses that are almost too pretty to use.",
+      "date": "2 days ago"
+    }
+  ],
+  "top_stories": [
+    {
+      "title": "Woman throws coffee at McDonald's manager in Michigan",
+      "stories": [
+        {
+          "title": "Angry customer throws hot coffee on McDonald's employee over cancelled breakfast order: VIDEO",
+          "link": "https://abc7chicago.com/post/angry-customer-throws-hot-coffee-mcdonalds-employee-cancelled-breakfast-order-saginaw-michigan/18133920/",
+          "source": "ABC7 Chicago",
+          "date": "3 hours ago"
+        },
+        {
+          "title": "McDonald's meltdown: Michigan woman wanted after allegedly tossing hot coffee at manager",
+          "link": "https://www.foxnews.com/us/mcdonalds-meltdown-michigan-woman-wanted-tossing-hot-coffee-manager",
+          "source": "Fox News",
+          "date": "1 day ago"
+        },
+        {
+          "title": "Michigan McDonald’s coffee attack: Video shows woman throwing hot coffee at manager",
+          "link": "https://www.clickondetroit.com/news/local/2025/11/09/michigan-mcdonalds-coffee-attack-video-shows-woman-throwing-hot-coffee-at-manager/",
+          "source": "ClickOnDetroit | WDIV Local 4",
+          "date": "8 hours ago"
+        }
+      ]
+    }
+  ],
+  "serpapi_pagination": {
+    "current": 1,
+    "next": "https://serpapi.com/search.json?device=desktop&engine=google_news_light&gl=us&google_domain=google.com&hl=en&q=coffee&start=10&location=Austin%2C+TX%2C+Texas%2C+United+States"
+  }
+}

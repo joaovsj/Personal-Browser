@@ -12,6 +12,7 @@ import { SpinnerComponent } from '@components/spinner/spinner.component';
 // Services
 import { ThemeService }   from '@services/theme.service';
 import { ConfirmService } from '@services/confirm.service';
+import { NewsComponent } from '@components/news/news.component';
 
 
 
@@ -26,7 +27,8 @@ import { ConfirmService } from '@services/confirm.service';
     SearchComponent, 
     ModalComponent, 
     ConfirmComponent, 
-    SpinnerComponent
+    SpinnerComponent, 
+    NewsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -84,10 +86,14 @@ export class HomeComponent {
   }
     
   async loadComponent({ badge, data }: { badge: string; data: any }) {
-    this.data = data;
+    
 
     console.log(data);
-    
+    this.data = data;
+   console.log(this.data);
+
+
+    console.log(data);
     console.log(badge);
 
     switch (badge) {
@@ -101,9 +107,9 @@ export class HomeComponent {
         this.currentComponent = ShoppingComponent;
         break;
 
-      case 'news':
-        // const { NewsComponent } = await import('@components/news/news.component');
-        // this.currentComponent = NewsComponent;
+      case 'google_news_light':
+        const { NewsComponent } = await import('@components/news/news.component');
+        this.currentComponent = NewsComponent;
         break;
 
       default:

@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit{
     // { label: 'IA Insights',   value: 'ai',        icon: 'bi bi-stars' },
     { label: 'Images',        value: 'google_images_light',    icon: 'bi bi-images' },
     { label: 'Shopping',      value: 'google_shopping_light',  icon: 'bi bi-shop' },
-    { label: 'News',          value: 'news',      icon: 'bi bi-newspaper' },
+    { label: 'News',          value: 'google_news_light',      icon: 'bi bi-newspaper' },
     { label: 'Jobs',          value: 'jobs',      icon: 'bi bi-folder2-open' },
   ];
 
@@ -74,6 +74,8 @@ export class SearchComponent implements OnInit{
     const query = this.getQueryValue(data, "q");
     const start = Number(this.getQueryValue(data, "start")) || 0;
 
+    console.log(query, start);
+
     this.searchForm.patchValue({
       query: query
     });
@@ -101,6 +103,8 @@ export class SearchComponent implements OnInit{
           badge: this.badgeSelected,
           data: res 
         })
+
+        console.log(res);
 
       },
       error: (err) => {
