@@ -64,15 +64,15 @@
 
                 <div class="items">
                     @for (search of this.relatedSearches; track $index) {
-                    
+                        
+                        @if(search.query){
                             <button class="search__link" (click)="request(search.link)" >
                                 <div class="search__block">
                                     <i class="bi bi-search"></i>
                                     <p>{{ search.query }}</p>
                                 </div>
                             </button>
-            
-                        
+                        }
                     }
                 </div>
             } 

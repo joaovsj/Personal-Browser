@@ -12,7 +12,6 @@ import { SpinnerComponent } from '@components/spinner/spinner.component';
 // Services
 import { ThemeService }   from '@services/theme.service';
 import { ConfirmService } from '@services/confirm.service';
-import { ShoppingComponent } from '@components/shopping/shopping.component';
 
 
 
@@ -27,8 +26,7 @@ import { ShoppingComponent } from '@components/shopping/shopping.component';
     SearchComponent, 
     ModalComponent, 
     ConfirmComponent, 
-    SpinnerComponent,
-    ShoppingComponent
+    SpinnerComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

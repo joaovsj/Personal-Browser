@@ -65,36 +65,36 @@ export class ShoppingComponent implements OnChanges, OnInit{
       this.windowWidth = window.innerWidth;
     });
 
-    this.http.get('assets/mocks/shopping.json').subscribe({
-      next: (res: any) => {
+    // this.http.get('assets/mocks/shopping.json').subscribe({
+    //   next: (res: any) => {
 
-        console.log(res);
+    //     console.log(res);
 
-        if (res) {
-          this.allItems = res.shopping_results;
-          this.items = [...this.allItems];
+    //     if (res) {
+    //       this.allItems = res.shopping_results;
+    //       this.items = [...this.allItems];
 
-          this.sources = Array.from(new Set(this.allItems.map(item => item.source)));
-          console.log(this.sources  );
-        }
+    //       this.sources = Array.from(new Set(this.allItems.map(item => item.source)));
+    //       console.log(this.sources  );
+    //     }
 
-      },
-      error: (err) =>{
-        console.log(err);
-      }
-    });
+    //   },
+    //   error: (err) =>{
+    //     console.log(err);
+    //   }
+    // });
 
   }
 
   ngOnChanges(){
     console.log(this.data);
 
-    // if (this.data) {
-    //   this.allItems = this.data.shopping_results;
-    //   this.items = [...this.allItems];
+    if (this.data) {
+      this.allItems = this.data.shopping_results;
+      this.items = [...this.allItems];
 
-    //   this.sources = Array.from(new Set(this.allItems.map(item => item.source)));
-    // }
+      this.sources = Array.from(new Set(this.allItems.map(item => item.source)));
+    }
 
   }
 
