@@ -86,15 +86,7 @@ export class HomeComponent {
   }
     
   async loadComponent({ badge, data }: { badge: string; data: any }) {
-    
-
-    console.log(data);
     this.data = data;
-   console.log(this.data);
-
-
-    console.log(data);
-    console.log(badge);
 
     switch (badge) {
       case 'google_images_light':

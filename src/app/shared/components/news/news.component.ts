@@ -53,7 +53,6 @@ export class NewsComponent {
           this.news_results = this.data.news_results;
           this.next         = this.data.serpapi_pagination.next;
           this.previous     = this.data.serpapi_pagination.previous || ""; 
-            console.log(this.next);
       }
     }
 

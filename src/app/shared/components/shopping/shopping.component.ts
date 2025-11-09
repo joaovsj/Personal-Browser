@@ -87,7 +87,6 @@ export class ShoppingComponent implements OnChanges, OnInit{
   }
 
   ngOnChanges(){
-    console.log(this.data);
 
     if (this.data) {
       this.allItems = this.data.shopping_results;

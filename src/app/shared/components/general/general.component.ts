@@ -96,7 +96,6 @@ export class GeneralComponent implements OnChanges, OnInit{
 
 
   ngOnChanges(){
-    console.log(this.data);
 
     if (this.data){
       this.organicResults   = this.data.organic_results;
@@ -114,7 +113,6 @@ export class GeneralComponent implements OnChanges, OnInit{
     this.data   = "";
     this.pages  = "";
 
-    console.log(this.pages);
     this.cummunicationService.sendData(link);
 
     window.scrollTo({

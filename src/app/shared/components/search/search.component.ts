@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit{
     { label: 'Images',        value: 'google_images_light',    icon: 'bi bi-images' },
     { label: 'Shopping',      value: 'google_shopping_light',  icon: 'bi bi-shop' },
     { label: 'News',          value: 'google_news_light',      icon: 'bi bi-newspaper' },
-    { label: 'Jobs',          value: 'jobs',      icon: 'bi bi-folder2-open' },
+    // { label: 'Jobs',          value: 'jobs',      icon: 'bi bi-folder2-open' },
   ];
 
   badgeSelected = "";
@@ -74,8 +74,6 @@ export class SearchComponent implements OnInit{
     const query = this.getQueryValue(data, "q");
     const start = Number(this.getQueryValue(data, "start")) || 0;
 
-    console.log(query, start);
-
     this.searchForm.patchValue({
       query: query
     });
@@ -93,10 +91,9 @@ export class SearchComponent implements OnInit{
   request(query: any, start = 0){
     this.badgeSelected = this.badgeSelected == "" ? "google" : this.badgeSelected;
 
-    console.log(this.badgeSelected);
     
     this.#settingService.searchGoogle(query,this.badgeSelected, start).subscribe({
-      next: (res) => {
+      next: (res: any) => {
 
         this.spinner.emit(true);
         this.componentChange.emit({
@@ -104,17 +101,16 @@ export class SearchComponent implements OnInit{
           data: res 
         })
 
-        console.log(res);
-
       },
       error: (err) => {
+
+        console.log(err);
+
         this.spinner.emit(false);
 
         if(err.status == 401){
           this.#confirmService.show("Please provide your correct SerpApi key in settings.", "info");
         }
-
-        console.log(err);
       },
       complete: () => {
         this.spinner.emit(false);
