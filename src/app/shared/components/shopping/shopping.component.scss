@@ -191,6 +191,7 @@
                 justify-content: space-between;
                 margin-top: 8px;
 
+                
                 .product__rating {
                     font-size: 0.9rem;
                     color: var(--text-color);
@@ -204,6 +205,10 @@
                     font-weight: 600;
                     font-size: 1rem;
                     color: var(--text-color);
+                }
+
+                .source{
+                    color: var(--secondary-color);
                 }
             }
             /**/

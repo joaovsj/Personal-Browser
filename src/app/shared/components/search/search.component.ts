@@ -95,6 +95,11 @@ export class SearchComponent implements OnInit{
     this.#settingService.searchGoogle(query,this.badgeSelected, start).subscribe({
       next: (res: any) => {
 
+        if(res.error){
+          this.#confirmService.show("No information for this query.", "error");
+          return;
+        }
+
         this.spinner.emit(true);
         this.componentChange.emit({
           badge: this.badgeSelected,
@@ -103,8 +108,6 @@ export class SearchComponent implements OnInit{
 
       },
       error: (err) => {
-
-        console.log(err);
 
         this.spinner.emit(false);
 
