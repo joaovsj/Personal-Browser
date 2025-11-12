@@ -14,5 +14,5 @@ Access the image Docker [here](https://hub.docker.com/r/joaovsj/personal-browser
 
 Running the container
 ```bash
-docker run -d -p 8080:80 joaovsj/personal-browser
+docker run -d -p 8080:80 joaovsj/personal-browser:1.1
 ```
