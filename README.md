@@ -2,6 +2,7 @@
 
 <p>
   This demonstrates how you can extract data from Google to build something interesting, such as a website, app, bot, or even an alternative Browser. 
+  In addition to use this app you should use your personal  [SerpApiKey](https://serpapi.com)
 </p>
 <br>
 
